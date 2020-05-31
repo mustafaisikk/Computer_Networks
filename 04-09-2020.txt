@@ -1,0 +1,72 @@
+iletim hataları
+* harici bir elektromanytetik sinyal verinin teslimatının yanlış olmasına sebep olabilir
+ - veri kaybolabilir
+ - veri düzgünce alınamayabilir
+ - istenmeyen veriler alınabilir
+* bu problemlerden her biri iletişim problemleri olarak adlandırılır.
+
+hata tespiti ve düzeltme
+* yanlış olan verinin tespiti ve reddedilmesini sağlayabilmek için ek bir bilgi gönderilir
+* hata düzeltme kısmında ise yanlış olan verinin düzeltilip kabul edilebilmesi amacı ile ek bir bilgi gönderilir
+
+parity (italic) checking
+
+* verimizin içerisinde bulunan lojik 1 lerin sayısını gösterir
+ - even parity - veri içerisindeki 1 lerin sayısının çift olmasına dayalı sistem
+ - odd parity - veri içerisindeki 1lerin sayısının tek olmasına dayalı sistem
+* parity biti ekstra bir bittir ve veri ile birlikte gönderilen bittir ve sonuç olarakk bu even veya odd paritiden hangisinin kullanılacağının önceden belirlenmesi gerekiyor
+ - örnek even parity de uzlaşılmız ise ve veri örneğin 10010001 ise parity bilgisi olarak 1 eklenir
+ - odd parity seçilmiş ise 10010111 ise parity bit 0 dır
+
+parity ve hata tespiti
+* gürültü veya diğer parazitler bizi hataya götürebilir bu veri içerisindeki btlerden biri 0 dan 1 e veya 1 den 0a dönüşebilir 
+* sonuçta parity bilgisi yanlış olacaktır.
+ - orjinal veri (10010001 + 1) even parity e göre
+ - incorrect data (10110001 + 1) (odd parity)
+* gönderici ve alıcı başlangıçta hangi parity nin kullanılacağı konusunda anlaşmalıdır
+* eğer alınan datada yanlış parity biti varsa alıcı verideki hatayı tespit eder
+
+Limitations to parity checking
+* parity yanlızca tek sayıda bitlerin değişimine bağlı ortaya çıkacak hataları tespit edebilir
+ - orjinal data (10010001 + 1 evenparity)
+ - incorrect data (10110011 + 1 evenparity!)
+* parity bilgisi (teniği) bir bite dayalı hataları tespit etme noktasında kulllanılır
+
+alternatif hata tespit şemaları
+* çoklu bit hatalarını tespit etme noktasında kullanılır
+ - veya bunlardan bazıları fazlalık bilgi vasıtası ile hataları düzeltebilir
+* chechsum ve crc yaygın kullanılan 2 tekniktir
+
+checksum
+* mesajın içerisindeki verileri bir int dizisi şeklinde düşünüp bunların toplamını baz alır
+* bu int yapılar 8 16 veya 32 bitlik olabilir
+* bu işlemleri yaparken genellikle 1 e tümleme işlemini kullanılır
+
+checksum hesaplamanın uygulanması 
+* uygulanması basittir yanlızca toplama kullnılır
+* 16 bitlik checksum ın en hızlı uygulamaları 32 bitlik aritmetik işlemleri kullanır ve en sonunda eldeyi ekler
+* bu hesaplama işlemini döngülleri açarak ve benzer optimizasyon teknikleri kullnarak hızlandıra bilirsiniz
+
+checksum limitleri
+* bütün hataları yakalayamaz (özetle yapılan işlem toplama sonucu çıkan verilerin eşit olup olmadığını kontrol etmek ancak farklı değerler ile aynı sonuca da ulaşılabildiğinden herzaman kullanışlı değildir )
+
+Cyclic redundancy checks (CRC tekniği)
+* mesajın içerisindeki bir fonksiyonun kat sayıları olarak düşünün 
+* donra bu katsayılardan oluşan veriyi bilinen bir fonksiyona bölün 
+* son kalan kısmı da crc olarak gönderin
+
+Hata tespiti ve çerçeveler
+* hata tespiti tipik olarak her bir frame için gerçekleştirilir
+* eğer frame de bir hata varsa alıcı tarafın bu frame yi göz ardı etmesi ile sonuçlanır 
+* örneğin crc bilgisi frame içerisinde veriye bağlı olarak hesaplandıktan sonra gönderilir
+
+özet
+* bilgisayar ağları veriyi paketlere böler
+ - bu kısımda kaynak paylaşımı
+ - adil kullanım vardır
+* donanım çerçeveleri vardı ve bunlar özelleşmiş donanıma göre belirlenir
+* her bir frame nin spesisifik formatıı vardır bu da frame nin nerede başlayıp nerede bittiğini gösterir
+* hata tespiti ve düzeltilmesi iletişim hatalarının tespiti ve düzeltilmesi noktsında kullanılabilir.
+
+
+

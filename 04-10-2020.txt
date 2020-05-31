@@ -1,0 +1,118 @@
+chapter 7
+Lan Teknolojileri yerel ağ teknolojileri
+
+doğrudan noktadan noktaya haberleşme
+* bilgisayarlar bir iletişim kanalı üzerinden birbirine bağlanır bu kanal tam olarak 2 bilgisayarı birbirine bağlar
+* bu tür ağlara noktadan noktadaya veya mesh ağlar denir
+* noktadan noktaya haberleşme bize haberleşme donanımında veya paket formatında bize esneklik sağlar
+* ilk gelen özelliklerden biri güvenlik ve gizlilik çünkü iletişim hattı paylaşılmadığından hat doğrudan iki bilgisayar arasındadır
+
+noktadan noktaya network bağlantılantı sayısı N adet bilgisayar için ( n * (n - 1) ) / 2 dir örneğin 3 bilgisayar için 3 bağlantı
+
+her eklenen yeni bilgisayar n - 1 adet bağlantı ekler
+
+noktadan noktaya haberleşmenin dezavantaşı bilgisayar sayısının artması ile oluşan kablo ve yönetim problemleri sonucunda
+1960 ların sonuda 1970 lerin başında yerel ağ teknolojisi lan teknolojisi geliştirildi
+
+* bilgisayarlar arasında paylaşımlı bağlantılar üzerinden toplam bağlantı sayısının azaltılması
+* en nihayetinde bilgisayarlar TDM ye dönüştürüldü ( TDM = zaman paylaşımlı çoğullama)
+- bu sistemler senkronizasyonun kulllanılması aşamasında çeşitli teknolojiler kullanıyor
+
+Lan teknolojilerinin büyümesi
+* lan teknolojileri bağlantıların sayısını azaltarak maliyeti düşürdüler 
+* Fakat yerel ağa bağlı bilgisayarlar ortak ağın kullanılması konusunda birbirleri ile yarışmalıdır
+* genelde yerel haberleşme yerel alan ağına özgüdür
+* uzak mesafe haberleşmede point to pont kullanılır arka planda 
+ - smds
+ - atm  yapılarını kullanıyoruz
+
+referans Yerellik ilkesi
+
+* bilgisayarlar arasındaki iletişim modellerini tahmin etmemize yardımcı olur
+ - mekansal , konumsal , uzaysal birbirlerine yakın bulunan bilgisayarların birbirleri ile haberleşme olanakları daha fazladır
+ - zamansal yerellik bilgisayarların haberleştiği bilgisayarlar ile tekrar tekarr haberleşme olasılıkları daha fazladır
+
+* Lanlar fiziksel yerellik ilkesi bakımından etkindirler zamansal yerellik açıından ise bu durumda hangi bilgisayarların lan da olması gerektiğine bakılabilir
+
+Lan Topolojileri
+* Netvorklerin şekillerine göre sınıflandırılmasıdır
+* 3 populer çeşidi vardır
+ - star
+ - ring
+ - bus
+
+yıldız topolojisi
+* bütün bilgisayarlar merkez noktaya bağlanırlar
+* yıldız topolojisinde merkezine çoğunlukla hab olarak adlandırılır
+* genellikle bağlantı kaploları bilgisayarlara benzer şekilde paraleldir. (cat 5 / 6 kablonun bilgisayardaki karşılıgı rj45 dir)
+
+Yüzük halta tapolojisi
+* bilgisayarlar kapalı bir döngü üzerinden birbirleirne bağlanırlar
+* birinci bilgisayar veriyi 2.ye aktarır 2. 3. ye derken döngü bu şekilde ilerler
+* bilgisayar ile halka arasında küçük bir bağlantı kablosu var
+* yüzük bağlantıarı ofisler içerisinde bulunan soketler yardımıyla bağlantı kablosuyla ofisler arasında da paylaştırılabilir
+(yüzük tapolojisinde 2 kalka vardır dış halka veri gönderilirken kullanılan kalkadır iç halka ise arıza durumu dışında iç halka kullanılmaz (herhangi bir arıza durumunda bir kopma durumunda kopan bilgisarın yanındaki bilgisayarlar iç halka yardımı ile kapalı döngüyü sağlaralar))
+
+Bus tapolojisi
+* tekli bir kablo üzerinden bütü bilgisayarlar bağlanır
+* ortak hatta her bir bilgisayarın bağlanmasını sağlayan bir connector vardır
+* bilgisayarlar birim zamanda yanlızca bir bilgisayarın veri gönderebilmesini sağlayacak şekilde senkronize olmalıdır
+
+neden çoklu tapollojiler var
+* yüzük tapolojisinin senkronizasyonu kolaydor ancak kablo kesildiğinde devre dışı kalabilir
+* yıldızın yöntimi basittir ve daha dayanıklıdır kopan kablo yanlızca o bilgisayar ile ilgilidir ancak çok daha fazla kabloya ihtiyaç vardır
+* çok da az bir kablo var kablo koptuğunda sistem devre dışı kalacaktır
+
+Ethernet
+* lan teknolojisi olarak oldukça yaygın olarak kkullanılır
+  - Xerox parc tarafından 1970 lerde icat ediliyor
+  - standartları xerox ıntel ve digital tarafından belirleniyor
+  - IEEE tarafından yönetiliyor - formatlaını voltaj değerlerini kablo uzunluğunu
+
+* bus tapalojisini kullanır
+ - tekli bir coax kablo var bu kablolara ether denir
+ - birden çok bilgisayarda sisteme bağlanabiliyor
+
+* bir ethernet kablosu çoğunlukla segment olrak adlandırılır
+ - uzunluğu yaklaşık 500 mt civarındadır
+ - bağlantılar arasında min 3m mesafe olmalıdır
+
+* ethernet hızları
+ - başlangıçta 3mbps
+ - normal hız 10mbps
+ - hızlı internet 100mbps
+ - 1gbps hızları kadar çıkabiliyor
+
+Ethernet işleyişi
+* birim zamanda yanlızca bir ilgisayar iletimde bulunur
+* sinyal modüle edilmiş bir taşıyıcıdır ve göndericiden gelen bu sinyal segmentin her iki yönü boyunca da yayılır
+
+CSMA
+* bilgisayarlar kablolu iletimde bulunduğunda herhangi bir merkezi kontrol mekanizması yoktur
+bu sebeple birden çok bağlı bilgisayarlar arasında iletişimi koordine etmek amacı ile ethernet csma kullanır
+ - birden çok bilgisayara sisteme bağlıdır ve herhangi biri gönderici olabilir
+ - carrier sence - veri göndermek isteyen bilgisayarın veri göndermeye başlamadan önce taşıyıcı için kabloyu test etmesidir
+
+Collesion detection (CD)
+* csma ile bile yine de iki bilgisayar eş zamanlı olarak transfere geçebilir
+ - her iki bilgisayarda aynı zamanda kabloyu test ettiler her ikiside kaloyu boş gördü ve transfer işlemine başladılar
+* her iki bilgisayardan gelen sinyaller birbiri ile çarpışıp bozulmalara sebep olacaktır
+* bu üst üste binen framelere collision denir 
+ - bu işlemin donanıma herhangi bir zararı yok 
+
+Ethernet CD
+* ethernet arayüzleri iletimi tespit edebilmek için bir donanım barındırırlar 
+  - gien sinyali inceliyorlar
+  - Bozuk olan sinyal çakışma olarak yorumlanır
+* çakışmanın tespit edilmesinden sonra bilgisayar veri göndermeyi durdurur
+* ethernet teknolojisi bu iletimde senkronizasyonu sağlamak amacı ile CSMA/CD birlikte kullanır
+
+çakışmadan geri dönme
+* çakışmayı tespit eden bilgisayar diğer bütün arayüzlere çakışmayı tespit edebilmelerini sağlamak amacı ile özel bir sinyal gönderir
+* akabinde bilgisayar daha sonra tekrardan transfere başlamadna önce tekrardan kablonun boş olup olmadığını beklemeye başlıyor 
+ - her iki bilgisayar aynı uzunlukta tekrardan beklerse yine çakışma oluşacak
+ - bunun önüne geçmek için standartlar maximum bir gecikme süresi belirleniyor ve çakışmaya uğrayan bilgisayarlar maximum süreden daha düşük olacak sürede bir random değer belirliyorlar
+* random değer kadar beklenildikten sonra bilgisayar olası alt çakışmalardan sakınmak amacı ile tekrardan carrier science kullanıyor
+ -- böylece daha düşük bekleme süresine sahip olan bilgisayar transfer işlemine başlıyor
+ - diğer bilgisayarlar işlem bittikten sonra kendi transfer işlemlerini gerçekleştiriyorlar
+

@@ -1,0 +1,54 @@
+thin ethernet wiring
+* ince coax kullanılır, buda kalın ethernet coax a göre ucuz maliyet oluşturmamızı ve daha kolay yönetebilmemizi sağlar
+* tranceiver elektroniği doğrudan NIC içerisine import edilmiştir; NIC doğrudam network ortamına bağlanır
+* coax kablo bağlantı için BNC connector kullanır
+* coax kablo doğrudan bağlı bilgisayarın arkasına yerleştirilir
+* T connector bilgisayarın üzerinde bulunan NIC a doğruadn bağlantı sağlar
+* eğer bilgisayarlar birbirine çok yakın konumlanmış ise faydalıdır
+* fakat güvenli değildir bağlantı kopması durumu bütün ağ etkilenir
+
+10Base-T
+* 10Base-T, twisted pair yada TP Ethernet denilebilir
+* AUI kablosu twisted pair cablosu ile değiştirilmiş
+* thick coax yerine burada hub var
+
+Hubs
+* bağlantı çoğullama kavramının genişletilmiş halidir
+* bazen "Ethernet-in-a-box" olarak çağırılır
+* efektif olarak uzun AUI kabloları yerine oldukça kısa Ethernet kabloları mevcut
+* Bu ağlar daha büyük ağlara bağlanabilir
+
+Protokol yazılımı ve ethernet kablolama
+* bütün kabolama teknolojileri benzer ethernet tanımlamasını kullanırlar
+ - benzer frame formatı
+ - benzer CSMA/CD algoritmaları
+* birden fazla teknolojiyi harmanlayabilirsiniz
+* NIC bize bu 3 bağlantı teknolojisini de sağlar
+* protokol yazılımları kablolama teknolojileir arasındaki farkı anlayamaz
+
+kablolama şemalarının karşılaştırılması
+* Ayrı tranceiver, bilgisayarların kapalı olabilmesini veya networktan koptuklarında iletişime zarar vermemesini sağlar
+* transciever uygunsuz bir konumda olabikir
+* hatalı arızalı çalışan transceiver in bulunması zor olabilir
+* thin minimum kablo kullanır
+* bir bilgisayarın hatalı bir duruma düşmesi ve bağlantının kopması bütün bir ağı kopartabilir
+* hub kablolama elektronik ve bağlantıları merkezleştirir
+* maliyetleri sebebi ile oldukça populer
+
+Tapolojiler ve network teknolojileri
+* 10Base-t; kablolama teknolojisi yıldızdır, mantıksal (network topolojisi) ise Bus dır
+* Token Ring çalışma teknolojisi mantıksal olarak ring dir, kablolama teknolojisi yıldızdır
+
+Diğer Teknolojiler
+* AppleTalk bağlantı kablosu ile transceivers e bağlanır ve Bus kablolama kullanır
+* AppleTalk 4 kablolu telefon kablosunun yedek bağlantılarını kullanarak bağlantıyı sağlar
+
+Özet
+* NIC bilgisayarları networke bağlar
+ - nic işlemlerini bağımsız şekilde gerçekleştirir; network ile uyumlu şekilde haraket edecek kadar hızlıdır
+ - Genellikle CPU ile etkileşim için kesmeler kullanır
+* birçok fiziksel kablolama şeması mantıksal network tapolojisine uygundur
+* 10Base-T mantıksal olarak bus fiziksel olarak yıldızdır
+
+
+

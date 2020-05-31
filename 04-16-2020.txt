@@ -1,0 +1,62 @@
+Üstel geri çekilme
+* rastgele gecikmelerde bile çarpışmalar meydana gelebilir
+* özellikle meşgul segmentlerde
+* Bilgisayarlar bekledikler gecikme süresini her bir alt çarpışmada iki katına çıkarırlar
+* koleksiyon dizilerinin olasılığını artırır
+
+wireless lan
+* 900mhz radyo sinyaleri kullanılır
+* veri hızı 2mbps 
+* paylaşımlı ortam olarak coax kablo yerine radyo sinyalleri kullanılır
+
+wireless deki bağlantı limitleri
+* kablolu lan yani ethernetin aksine wireless de bütün katılımcılar birbirleriile haberleşemeyebilirler
+ - düşük sinyal gücü
+ - yayılımın duvarlar tarafından engellenmesi
+* buradaki sistemde CD yapısını kullanamazsınız çünkü bütün katılımcılar birbirlerini duyamayabilir
+
+CSMA / CA
+* wiewlwss ağlar çarpışma tespiti yerine çarğışmadan sakınma algoritmasını kullanırlar
+ - gönderici bilgisayar alıcıya çok küçük bir mesaj yollar 
+ - alıcı da gönderici için küçük bir slot ayırdığını gösteren mesaj geri döndürür
+* bu alıcıdan gelen mesj olası bütün gönderici istasyonlara broadcast yapar (broadcast = bütün herkese yayın yapmak)
+
+Collesion
+* alıcı eş zamanlı istekler alabilir
+ - alıcı eşzamanlı istekler alabilir
+ - her iki istek kaybedilir
+ - hiçbir gönderici için herhangi bir slot ayrmında bulunmaz
+
+Alıcı çok yakın aralıklar ile istek alabilir
+ - alıcı birini seçer
+ - seçilen göndericiye mesaj gönderilir
+ - seçilmeyen gönderici isteği devre dışşı kaldığı için tekrardan istekte bulunur
+
+LocalTalk
+* lan teknolojisi bus topolojisini kullanır
+* macintosh bilgisayarlarda arayüz olarak sağlanır
+nispeten hızı 230.4 kbps ile düşük hızda idi
+* macintosh larda ücretsizdi ve kurulumu ve kullanımı kolaydı
+CSMA / CD kullanır
+
+Token ring
+* günümüzde hala aktif olarak kullanılan teknoloji
+* yüzük tapolojisini kullanan bir lan teknolojisidir yüzüğe erişimlerde senkronizasyonu sağlayabilmek için token geçişi kullanır
+* ring kendisi tekil ve paylaşımlı bir ortamdır
+* bu halkadan oluşan bitler diğer bilgisayarları geçerek hedef bilgisayarda kopyalanır
+* bu donanımda token geçişine uygun şekilde dizayn edilmesi lazım ve herhangi bir bilgisayarın kapanma durumuna bağlı olarak dizayn edilmesi gerekir
+
+token kullanımı
+* bir bilgisayar veri iletimi isteğinde bulunduğunda token ı beklemelidir
+* transfer işlemi bittikten sonra bilgisayar tokeni tekrardan ringe verir
+* böylece veri göndermek isteyen bir sonraki bilgisayar da tokeni yakalar ve transfer işlemini başlatır
+
+token ve senkkronizasyonu
+* sistemde yanlızca 1 token olduğundan birim zamanda yanlızca 1 bilgisayar bilgisayar bilgi gönderebilir 
+ - token özel bir frame dir bu data kısmında değildir 
+ - donanım bu tokenı yeniden üretecek şekilde dizayn edilmişte olmalıdır
+* token her bir bilgisayara bir frame gönderme izni verir
+ - eğer bu sırada veri göndermeye hazır birden çok bilgisayar varsa bu bilgisayarlar arasında roundrobin algoritması kullanır
+ - eğer veri göndermeye hzır herhangi bir bilgisayar yoksa token ring üzerinde tur atar
+
+

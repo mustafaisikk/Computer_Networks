@@ -1,0 +1,113 @@
+IBM token ring
+* çok yaygın olarak kullanılır
+* orjinali 4mbps, günümüzde 16mbps
+* bilgisayar ile yüzük tapolojisi arasında özel bir bağlantı kablosu kullanır
+
+FDDI
+* FDDI birbaşka yüzük tapolojisidir
+ - istasyonlar arasında fiboroptik kullanılır
+ - veriyi 100mbps hız ile iletir
+* iki fiber hat kullanılır
+
+FDDI ve güvenilirlik
+* yüzük tapolijisini kullanan teknoloji
+* zıt yönlü iletişim için halkalar kullanır 
+* istasyon kaybı veya fiberin kaybında kalan istasyonlar yedek hat üzerinden tekrardan döngüyü sağlayacak şekilde yapılandırılırlar
+ 
+ATM - yıldız ağı
+* asenkron transfer mod teknolojisi elektronik paket anahtarlarından oluşur, bilgisayarlar da kablo ile bu yapıya bağlanırlar
+* ATM switch leri yıldız tapolijisi içerisinde bir hub a abağlanacak şekilde atm switch i oluşturur
+* bilgisayarlar göndericiden veriyi doğrudan bir noktadan bir noktaya bağlantı şeklinde alarak switch üzerinden hedefe yönlendirilirler
+
+ATM Detayları
+* veri hızı 100mbps üzerindedir
+* bilgisayarlar switch e bağlanmak için fiberoptic kullanılır
+* her bir bağlantı için 2 fiber ağlantı kullanılır
+
+özetle
+* lan teknolojilerini paylaşımlı iletişim ortamı olarak kısa mesafeler üzerindenn birden çok bilgisayarı birbirine bağlamak için kullanıdık
+* gönderici bilgisayar iletişim ortamının kullanımı noktasında seçkindir; bilgisayarlar iletişim için senkronize olmalı ve mevcut kapasiteyi paylaşmalıdır
+* LAN Topologies;
+ - Star
+ - Ring
+ - Bus
+* Lan technologies
+ - ethernet
+ - wireless
+ - localtalk
+ - localtalk
+ - IBM token Ring
+ - FDDI
+ - ATM
+
+chapter 8
+
+Doannım adresleme ve frame tiplerinin tanımlanması
+
+GİRİŞ
+* bir önceki chapter da lan teknolojisine bağlı olarak bilgisayarlar arasında bağlantıyı sağlayan teknikleri görmüştük
+* bizim bunların haricinde bu noktada ihtiyacımız olan şey mesajın lan ortamı üzerinden tekli ve belirli spesifik bir hedef bilgisayara iletilmesi
+* gönderici bilgisayar bir donanım adresi kullanır ki bu donanım adresi verinin veya framenin teslim edilmesi gereken bilgisayarı içerir
+* veriyi gönderen bilgisayar framenin içerisinde taşıann verinin tipini de tanımlar
+
+Hedefin Belirlenmesi
+* ortak bir ağ üzerinden paylaşılan veri bütün istasyonlara erişir - bütün lan topolojileri için geçerlidir
+* aynı donanımı framenin teslimini kabul eder ve ortamdan frameyi alır
+* Ama çoğu uygulama başka bilgisayar üzerindeki belirli bir uygulamaya veri teslim etmek ister
+
+Donanım adresleme
+* çoğğu network teknolojisi bir donanım adresleme şemasına sahip ve bu şema ağ üzerindeki istasyonları tanımlar
+* her bir istasyona sayısal bir donanım adresi veya fiziksel adres atanır
+* gönderici iletilen her bir framenin içerisinde bu donanım adresini koyar
+* framenin içerisindeki tanımlanan istasyon yanlızca framenin kopyasını alır
+* bunun haricinde birçok lan teknolojisi yine framenin içerisinde göndericinin donanım adresini de barındırır
+
+Lan donanımı ve paket filtreleme
+* lan üzeridnen framelerin alınmasını veya gönderilmesine sağlar bu da arka planda işlemci ve bellekle ilgilidir
+* işlemci ve bellekte gidecek olan datayı üretir veya gelen dataları işler
+* Lan arayüzü veri alınırken veya gönderilirken bunun ile ilgili veriyi taşıyan framenin bütün detaylarına sahiptir
+ - bu data çerçevesine (frame) donanım adreslerini ekler, framenin en son kısmında bulunan hata tespit kodlarını ekler (crc) bunları giden frameye ekler
+ - DMA kullanabilir , çerçeve verisini doğrudan ana bellekten almak amacı ile kullanaabilir
+ - gönderme sırasında erişm kurallarına uyar
+ - gelen frameler üzerinden hata tespit kodlarını inceler
+ - DMA yi veriyi doğrudan bellek içerisine transfer etmek için de kullanılabilir
+ - gelen framenin hedef adres kontrolü
+  ** eğrr gelen frame üzerindeki hedef adres yerel istasyonun adresi ile eşleşir ise framenin bir kopyası bağlı bulunan bilgisayara aktarılır
+  ** eğer frame ilgili yerel bilgisayaara ait adrese sahip değil ise göz ardı edlir
+
+Donanım adresi formatları
+* bir sayısal değerdir uzunluğu 6ybte dır
+
+Donanım adreslerinin atanması
+* donanımadresi o yerel ağ üzerinde eşsiz olmalı
+* bu adreslerin atanması nasıl olacak, ve bu değerlerin eşsiz olması kim tarafından sağlanıyor
+
+* Static(firma tarafından):
+  - donanım üreticisi her bir arayüze kalıcı bir adres atar
+  - üretici her bir arayüze eşsiz bir adrese sahip olduğunu garanti etmelidir
+* Dynamic():
+  - donanım adresi son kullanıcı tarafından atanabilir bu işlem doğrudan bir switch vasıtası veya bir jumpers üzerinden gerçekleştirilebilir
+  - sistem yöneticisinin çakışmayı önlemek için koordine etmelidir
+*Automatic:
+  - arayüz her bir bilgisayar açıldığında doğrudan bir donanım adresi atar
+  - otomatik şemalar çakışmaları önleyecek şekilde güvenilir olmalıdır
+
+Broadcasting
+* bazı uygulamalar lan üzerindeki bütün istasyonlara mesajı dağıtmak isteyebilir
+* bu durumda ortak iletişim kanalı broadcast i verimli kılar - mesaj bütün istasyonlara dağıtılır
+* özel bir broadcast adresi broadcast mesajlarını tanımlamak için kullanılır ki bu sayede mesaj bütün istasyonlar tarafından kabul edilir
+
+Paket içerikleirnin tanımlanması 
+* hedef bilgisayar frame içerisindeki verinin nasıl yorumlanacağı noktasında bazı ip uçlarına sahip olmalıdır
+* Kullanımı
+  - açık frame tipi - verinin içerisinde, verinin tipini tanımlayan bilgi framenin içerisine yerleştirilir
+  - üstü kapalı frame tipi - alıcı aldığı veri üzerinden tipi kendi çıkarmalıdır
+
+Başlık ve frame formatları
+* Lan teknoloji standartları her bir teknoloji iin frame formatı tanımlar
+* bütün çağdaş standartlar bu formatı kullanır (başta frame header ve frame data area veya payload )
+* frame header adresleri ve diğer tanımlamaları içerir
+* bu alanlar içerisindei bilgi genellikle sabit boyut ve konuma sahiptir
+* veri alanı boyu değişebilir
+
+

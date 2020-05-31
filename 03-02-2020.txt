@@ -1,0 +1,125 @@
+( chapter 4 sayfa 9 )
+
+RS-232 Detayları
+
+* Standartın özellikleri
+ - bağlantı 50 feet den düşük olmalı
+ - verileri ifade eden voltaj seviyesi +15v ile -15v arasındadır
+ - veri, toprak, ve diğer uçların toplamı ile 25 bacaktan oluşur
+ - örnek olarak terminal ile modem arasında gönderilecek olan karakterleri belirler
+* gönderici kabloyu asla 0v da bırakmaz; hatta veri olmadığında ( idle )  negatif voltaj ( 1 ) koyar
+
+asenkrol karakterlerin tanımlanması
+* göndeici yeni bir karakterin başlayacağını 0 göndererek belirtir.
+ - alıcı yeni bir karakterin başlayacağını bu şekilde tespit edebilir
+ - fazladan 0 bilgisi startbiti olarak adlandırılır
+* gönderici hattı boşta bırakmalıdır ki alıcı yeni karakterin başlangıç yerini tesit edebilsin
+ - gönderici her bir karakterden sonra bir adet 1 gönderir
+ - bu ekstra 1 bitine stop biti denir
+* böylece 7 bitle temsil edilen bir karakter için hatta gönderilmesi gereken bir sayısı 9 dur
+
+RS-232 terminolojisi
+ - negatif voltaj 1
+ - pozitif voltaj 0
+
+Zamanlama
+* gönderici ve alıcı her bitin zamanlanması noktasında uzlaşmalıdır
+* bu uzlaşma transmission rate adını verdiğimiz iiletim hızını seçerek gerçekleştirir
+ - bu iletişim hızı bit per second olarak ölçülür
+ - start bitinin alıcı tarafından tespiti akabinde arkasından gelecek diğer bitlerin geleceğni gösterir
+* donanım genellikle bit hızlarını eşleştirecek şekilde configure edilebilir
+ - swifty ayarları
+ - yazılım
+* oto deteciton
+
+iletim hızlarının ölçülmesi
+* baud rate terimi saniye başına değişen sinyal sayısını ifade eder
+* bits per second saniye başına gönderilen bit sayısını ifade eder
+* RS-232 de her bir sinyal değişimi 1 bite karşılık gelir bu sebeple baud rate ile bits per second birbirine eşittir
+* eğer her bir sinyal değişimi birden fazla bite karşılık gelirse bu durumda bits per second baud rate den büyük olduğu anlamına gelir
+
+Çerçeveleme
+* start ve stop bitleri her bir karakterin çerçevesini gösterir
+* eğer gmnderici ve alıcı farklı hızlar kullanıyorsa stop biti alıcı tarafında beklenilen zamanda almaz
+* bu problem çerçeveleme hatası veya framming error olarak adlandırılır
+* bu durumda RS-232 cihazları BREAK olarak adlandırılan çerçeveleme hatası mesajı gönderebilir
+
+Çift-yönlü iletişim
+* her iki terminal arasında eş zamanlı olarak veri gönderilebilmesi işlemine full-dublex iletişim denir 
+* bu yapı her bir yön için ayrı bir kablo gerektirir
+
+RS-232 bağlantı stndartları
+* RS-232 ye ait 25 tane pinin belirttiği ifadeler aşağıdadır
+ - pin 2 alıcı olarak kullanılır
+ - pin 3 gönderici
+ - pin 4 gönderilmeye hazır veri için
+ - pin 5 gönderilen verinin temizlenmesi için
+ - pin 7 topraklama hattı
+
+2-3 değişim
+* alıcı ve gönderici tarafında 2 ve 3 pinlerini birbirine bağlamak için çapraz bağlama kullanılmalıdır
+* RS-232 modem tarafında pin 2 üzerinden gönderim yapıp pin 3 üzerinden alım işlemini gerçekleştirirken bilgisayar tarafında pin 3 üzerinden gönderim yaparken pin 2 üzerinden alım işlemini gerçekleştirir.
+* bu durumda aynı bacaklarda ( pin 2 -> pin2 , pin 3 -> pin -> 3 ) zıt kutuplar eşleştiğinde çapraz bağlantıya ( swap ) gerek yoktur.
+
+gerçek donanımın limitleri
+* kablodaki dalga formu aşağıdaki şekilde ki gibi görülür
+* daha uzun kablolarda harici gürültüler sinyal görünümünün daha da bozulmasına sebep olur
+* RS-232 standardı göndericinin üretmesi gereken dalga formunun ne kadar kesinlikte olacağını, alıcı tarafta dalga formunda nen kadar tolerans olması gerektiğini de belirler 
+	7
+Donanım bant genişliği
+
+
+
+gemellikle k farklı durum içeren sistem için2Blog2K
+pratikte gürültü iletilecek maximum veri hızı 
+
+
+Uzak mesafe haberleşme
+RS-232 tarafından kullanılarak kodlama her durumda çalışmaz
+ - uzak mesafe haberleşme
+ - telefon gibi var olan sistemleri kullanan yapılar
+bu sebeple farklı kodlama stratejileri gerekir
+
+uzak mesafelere sinyal gönderimi
+* elektrik akımı kablo üzerinde ilerlerken güç kaybeder
+* kayıp siyal verinin doğru br şekilde dönüştürülmesini engellleyebilir
+* sinyal kaybı durumu RS-232 nin uzak mesafe haberleşmede kullanılmasını olanaksız kılar
+
+Sürekli salınımlı sinyal
+* elektik akımından daha uzak noktalara ulaşabilir
+* uzak mesafe haberleşme carrier ( taşıyıcı ) adını verdiğimiz bir sinyal üzerinden gerçekleştirilir
+* taşıyıcının dalga formu aşağıdaki şekildeki gibidir
+* taşıyıcı RS-232 sinyalinden sinyaline göre çook daha uzak mesafelerden tespit edilebilir. 
+
+Bir taşıyıcı ile birlikte veri kodlanması
+* iletimde verinin kodlanması için kullanılan modifikasyon tekniğine modilasyon denir
+* benzer fikir radyo ve televizyon sistemlerinde kullanılır
+* Taşıyıcı modilasyonu bütün ortam tipleriye kullanılır. Ortamlara örnek olarak bakır fiber radyo imfrared ve lazer verilebilir.
+
+Modülasyon teknikleri
+* Genlik modilasyonu güç veya taşıyıcının genliği (genlik ne kadar fazla ise sinyal o kadar güçlüdür) veriyi kodlamak için kullanılır
+* frekans modulation, taşıyıcının frekansı veriyi kodlamak için kullanılır
+/*
+	am ile fm arasındaki farklar ve avantajlar
+	am daha güçlü dalgalar her alandan çekim gücü
+	fm daha güçsüz ama daha kaliteli ses
+*/
+* Faz kaymalı modülasyon, zaman içerisindeki değişiklikler veya faz kaymaları ile verilerin kodlanması
+// frekans yükseldikçe kalite yükselir
+* her bir faz kayması birden fazla biti taşımak için kullanabilir örnek olarak olası faz kaymasını 2 bit ile kodlayabiiliriz:
+ - 00 - Kayma Yok
+ - 01 - 1/4 oranında kayma
+ - 10 - 1/2 oranında kayma
+ - 11 - 3/4 oranında kayma
+* böylece her bir faz kayması 2 bit taşınmış olur
+* bu durumda yine veri hızı baud rate nin 2 katıdır
+
+veri iletimi için donanım
+* modülatör veri bitlerini modüle edilmiş taşıyıcı şeklinde kodlar ( veri bitlerini karşılık gelecek şekilde taşıyıcıya dönüştürür )
+* demodulatör taşıyıcıdan bitleri dönüştürür
+* veri iletimi kaynakta modulatör hedefte demodülatörü gerektirir
+
+çift yönlü iletişim
+* Çoğu sistem eş zamanlı çift yönlü ( full-duplex ) bu sebeple her iki uç noktada da hem modülatör hem de demodülatörü gerektirir.
+* uzak mesafe haberleşme 4 kablolu çevirim olarak adlandırılır.
+* modulatör ev demodülatör modem adı verilen bir cihaz ierisinde birleştirilmiştir

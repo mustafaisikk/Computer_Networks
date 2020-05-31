@@ -1,0 +1,88 @@
+Chapter 10
+
+Giriş
+* Lan Teknolojileri hız mesafe ve maliyet gibi kısıtlamalar ile dizayn edilmiştir
+* tipik lan teknolojisi çoğunlukla birkaç yüz metreye kadar genişleyebilir
+* biz bu yerel ağları örnek olarak bir kampusu kaplayacak şekilde nasıl genişletebiliriz
+
+Mesafe için Lan dizaynı
+* bir çok yerel ağ paylaşımlı ortam kullanır - etkernet teknolojisi , token ring
+* ortamın uzunluğu ortama erişim noktasındaki adaleti sağlamada rol oynar
+ - CSMA / CD - frameler arası gecikme, minimum frame uzunluğu
+ - Token passing - ortam büyüdükçe tokenin ağdaki dönüş süreci de artar
+* ortam büyüdükçe elektrik sinyalinin gücü de etkilenir, gürültü bağışıklığına karşı bağışıklık kazanılır
+
+Lan Uzantıları
+* çeşitli teknikler ile lan ortamının çapını gebişletiriz
+* çoğu tekniker ek donanım kullanır
+* Lan sinyalleri lan gegmentleri arasında iletilir
+* sonuçta bu bütünleşik teknoloji orjinal mühendislik kısıtlamaları içerisinde kalırken daha uzak mesafeleri kapsayabiliriz
+
+Fiber Optic uzantılar (Fiber Modem)
+* görüleceği üzer fiberoptik cablo kullanarak biz bağlantımızı uzak bir bilgisayara erişecek şekilde genişletebiliriz
+
+*Fiber Modemler
+ - AUI sinyalleri dijital sinyallere çevrilir
+ - fiber optik kablo üzerinden diğer modemlere gelen sinyalleri iletir
+* 2 tane yerel ağı birbirine bağlamak için (en sık kıllanılan yapılardan biri), bir bridge üzerinden sağlanıyor farklı binalar ile
+
+Repeaters
+* repeaters kullanarak yerel ağ ortamını genişletebiliriz
+ - ethernet - ortam büyüdükçe zaman kısıtlaması oluşur
+ - sinyal gücü limit uzunluğunu sınırlar
+* bir repeater lan segmentinin boyutunu etkin bir şekilde iki katına katlayabilir
+
+Ethernet repeater ları
+* baitçe sinyalleri segmentler arasında kopyalar
+ - framme formatlarını anlamaz
+ - herhangi bir donanım adresi de içermez
+* herhangi bir segment 500 metre ile sınırlıdır
+* repeater ile bu uzunluk 2 katına çıkartılabilir (1000 metre)
+
+repeater mimarisi
+* repeater sayesinde interneti bina içerisinde güçlendirebilirsiniz
+* diğer repeater lar da frameleri diğer segmentler üzerinde iletilirs
+
+FOIRL - uzak yerleri bağlama noktasında kullanılabiir
+
+Repeater ların karakteristikleri
+* çok kolay kullanımı vardır - sadece ekleyin
+* repeaterlar kolaylıkla analog sinyalleri yeniden iletir
+ - çakışma varsa bile bütün network e iletir (Dolayısı ile bütün network etkilenir)
+ - geçiş problemleri - gürültü, gürültüyü de network e olduğu gibi iletir
+
+Bridge ler
+* LAn segmmentlerini baplamak için kullanılan yapılardan biri
+* bir segmetten gelen frameleri diğer segment veya segmentlere yeniden iletir
+* Bütün frameyi işler 
+ - diğer istasyonlar gibi NIC kullanır
+ - Frame üzerinde bazı işlemler gerçekleştirir
+* diğer bağlı bilgisayarlara hissettirmezler
+
+Bridge lerin karakteristiği
+* nispeten kolay kunnımı vardır
+* gürültüyü, çakışmayı izole eder
+* diğer bridgeler iletilen frameyi alabilir
+
+Bridgelerin filtrelenmesi
+* bridge framme üzerinde ek işlemler yapar
+ - çakışma veya gürültüyü iletmez
+ - yanlızca gerekliyse frameyi iletir
+
+Brigde frame filtreleme
+* Bridge frame filtreleme yapar, framelri yerel ağ segmentleri boyuncaca hedefe iletir
+ - frameleri izleyerek istasyonların konumlarını öğrenir
+ - broadcast ve multicast mesajlarını iletmesi gerekir
+* bridge gelen her bir framenin hdefini kontrol eder
+* ve bu hedefi bilinen istasyonlar istesinde arar
+ - kendisine gelen frameyi hedefe doğru olan yoldaki birsonraki arayüze iletir
+ - Eğer hedef frameyi aldığımız segmentte ise bu durumda bridge ilgili frameyi bir sonraki segmente iletmez
+
+bilinen istasyonlar listesini nasıl kurar?
+* bridge gelen her bir framenin kaynak adresini inceler
+* framenin alındığı lan segmenti için listeye bir girdi ekler
+* eğer hedef kendi listesinde yoksa ilgili her bir frameyi iletmeye devam eder
+
+
+
+

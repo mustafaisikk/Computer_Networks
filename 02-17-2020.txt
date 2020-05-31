@@ -1,0 +1,110 @@
+Ağ: Bigisayarların tekli bir iletişim teknelojisi kullanarak bağlayan sisteme denir.
+
+internet : ağlara bağlı bilgisayarlae arasında trafik iletmek üzere yapılandırılmış yönlendiriciler tarafından bağlanan ağlar kümesi
+
+veri alışverişi: ortam veri kodlaması
+
+paket iletimi : network üzerinden veri alışverişi
+internet working : ağların bir kümesi üzerinden çalışan evrensel bir servistir
+
+network uygulaması : internet kullanan programlar bu gruptadır
+
+
+Patlayıcı Büyüme
+
+yeni fenomen: günlük aktivitelerimizin önemli bir parçasını ağlar oluşturur
+ - iş yeri
+ - ev
+ - hükümet
+ - eğitim
+
+Global internet Büyüyor
+ - Başlangıçta birkaç düzine alana sahip araştırma projesi
+ - Bugün dünya çapında milyonlarca bilgisayar ve binlerce ağ
+
+İNTERNET
+* Arpanet  isimli projeden gelişmiştir
+ - merkezi sistemden dağıtık sisteme doğru temel değişiklikler meydana geldi
+ - güvenlik ve sağlamlık gibi çeşitli özellikler eklendi
+ - birden çok bağlantı
+ - dağıtılmış yönlendirme
+* ETHERNET yerel ağı daha makul ve kullanılabilir yapar
+* ICP / IP protokolü internet üzerinden çalışma sağlayan Arpanet'ten sonra gelişmiştir geçiş 1983 yılında gerçekleşmiştir
+* exponential büyüme - her 18 ayda 2 ye katlanır
+
+Ekonomiye Etkisi
+* internet tarafından çok büyük bir endüstri kuruldu
+ - ağ donanımı
+ - bilgisayarlar
+ - yazılım
+*şirketler planlama uygulama yönetim ve geliştirme konularında birlikte çalışmalıdırlar
+
+Karmaşıklık
+* Bilgisayar Ağları Karmaşıktır
+ - birçok farklı donanım teknelojisi içerir
+ - birçok farklı yazılım teknolojisi içerir
+ - tüm bunların internet üzerinden bağlanması
+* altta yatan bir teori yok
+* terminoloji kafa karıştırıcı olabiliyor
+ - TLA lar
+ - endüstri teknolojiden yararlanarak terminolojiyi yeniden tanımlar ve değştirir
+ - yeni terimler her zaman geliştirilir
+
+Soyutlmalar ve kavramlar
+* karmaşıklığı çözmek için soyutlamalara ve kavramlara konsantre olacak
+* Örnekler
+ - ağ üzerindeki veri tyransferinin detaylarından ziyade ağdaki kablolamanınn nasıl yapıldığına ilgileneceğiz
+ - sıkışıklığın tanımı ve kavramını yapıp sıkışıklığın çözme tekniklerini konuşacağız
+
+( chapter 3 - 02 )
+
+Tarihi motivasyon
+* İlk bilgisayarlar pahalıydı
+ - Geniş Alan
+ - Merkezileştirilmiş
+* programların koşması oldukça fazla zaman alıyordu
+* bilgisayarları istediğimiz her yere koyamıyorduk
+
+ARPA ( Advanced Research Projects Agency )
+* araştırmacıları bilgisayarlara bağlamak için başlangıçta bir proje olarak geliştirildi
+* Yeni teknolojilere adapte oldu
+ - paket anahtarlama
+ - internet working
+* Sonuçta pahalı kaynaklara uzaktan erişebilmek için bir sistem elde edilmiş oldu
+
+Paket Anahtarlama
+* Veri küçük ve birbirinden bağımsız parçalar halinde gönderilir
+ - kaynak giden mesajları paketlere böler
+ - hedef orjinal veriyi yeniden birleştirir
+* Her paket bağımsız olarak haraket eder
+ - her paket hedefe teslim için gereken veriyi içerir
+ - bu paketler farklı yollar izleyebilirler
+ - kaybolursa yeniden iletilebilir
+
+İnternet Üzerinden Çalışma
+* birbirinden farklı teknolojileri içeren birçok networkü barındırır
+* her durum için tek bir uygun teknoloji yoktur
+* internetworking bazen teknolojilerin ağlarını yönlendiricilerle birleştirir
+* Sonuçta detayları görülmeyen bir sanal ağı elde edilir. İşte buna İNTERNET denir
+
+************************************************
+ARPA'net 1960ların sonunda ortaya çıktı ( 1969 )
+Modern internetin Ortaya Çıkış Tarihi 1982 dir
+TCP / IP 1978 yılında bulundu
+( ÖNEMLİ )
+************************************************
+
+İnternetin gözlenmesi
+* 2 tane aracımız var
+ - ping = gönderilen mesajların uzak bilgisayar tarafından yargılanmasıdır
+ - traceroute = uzaktaki bilgisayara giden yolu bildirir
+
+PİNG
+* uzaktaki bilgisayara gönderilir
+* hedef bilgisayar echo paketi ile cevap verir
+* yerel bilgisayar aldığı cevabı raporlar
+
+TRACEROUTE
+* bir paket dizisinin hedefe doğru olan yol boyunca gönderilmesidir
+ - herbir ardışık paket yol boyunca bir sonraki rooter ı tanımlar
+ - genişletilmiş yüzük araması algoritmasını kullanır paketlerin listesini raporlar

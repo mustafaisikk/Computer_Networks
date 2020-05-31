@@ -1,0 +1,176 @@
+
+Ağ haberleşmesi
+
+* veri bir noktadan bir noktaya transfer olurken ağın kendisini bu durumdan haberi yoktur 
+* Ağın kendisi ne gönderilen datayı üretir ne de gönderilen datadan haberi vcardır
+* bütün veri işleme işlemi uygulama pogramı tarafından gerçekleştirilir
+  - ağın iki ucundaki kullanıcılar ağı sadece veri alışverişinde (mesaj değiş tokuşunda) bulunmak için kullanılır
+  - böyle bir veri tabanı istemcisi merkez veri tabanına erişir
+  - istemci (remoor computer -uzak bilgisayar-) tarafındaki uygulama veri tabanı ( server ) bilgisayarındaki koşan uygulamaya bir istek gönderir 
+  - Yanlızca bu iki uygulama mesajların formatını ve anlamını anlar
+
+istemci sunucu mimarisi
+
+* nasıl oluyor da bu kadar büyük bir internet yapısında iki program birbirini bulabiliyor
+* internet basit bir mekanizma kullanır 
+  - bir uygulama ilk olarak koşar ve iğer uygulamanın ona bağlantı kurmasını bekler
+  - ikinci uygulama birinci uygulamanın nerede olduğunu bilmek zorundadır
+* işte bu yapı istemi sunucu mimarisi olarak bilinir
+* bağlantı için bekleyen program server olarak adlandırılır ve başlangıçta bağlantıyı oluşturacak program ise client olarak isimlendirilir. 
+* internette bir konum bilgisayar ve uygulama çiftlerinin kimlikleri yardımı ile belirlenir.
+* çiftlerden biri olan bilgisayar serverin koştuğu makinayı tanımlarken çiftin diğer tarafı olan uygulama bir bilgisayarda koşan özel bir uygulama programıdır
+* ağ yazılımı her bir ismin ilgili karşılığı olan ikili sayıya otomtik olarak dönüştüren bir yazılım barındırır. insanoğlu bu yapıyı sağlayabilmek amacı ile alfabetik rotasyonları kullanılır
+* ağ ikili sistemleri anlayabilir ancak insan anlayamaz
+
+
+iletişim paradikması
+
+* çoğu internet uygulaması haberleşirken benzer bir işlem sırasını takip eder
+  - sunucu uygulaması başlangıçta koşar ve client dan kendisine bir bağlantı bekler
+  - client sunucunun lokasyonunu belirleyerek server a bağlantı kurar ve haberleşme isteğinde bulunur 
+  - client ve server mesaj alışverişini gerçekleştirir 
+  - veri gönderme işlemini tamamladıktan sonra hem client hem de serverhaberleşmenin bittiğine dair "end of file" isimli bir mesaj göncerilir.
+
+bir uygulama programı araüxü örneği
+* şimdiye kadar biz iki uygulama programı arasındaki etkileşim haberrleşmeden bahsettik
+* şimdi bitaz daha işlerin içeriğine inelim
+* bilgisayar bilimcileri uygullama programcısına olanaklar sağayan bir dizi işlevi tanımlamak amacı ile API ( application program interface ) adı verilen terimi kullanır
+* bir api her bir işlev için gerekli olan argümanları tanımlar 
+
+
+bit ağ uygulaması global ingetrnet üzerinden çalışan bit uygulama olarak yaratılabilir ki burada adını api olarak tanımladığımız yüksek eviye fonksiyonlar kullanılır
+api temel olarak 7 kısımdan oluşur. ( slayt 8 )
+api ticari uygulamalar iile birilkte çalışabiliecek bir uygulamayı oluşturabilecek kadar yeterlidir.
+
+( slayt 2-a yı bitirdik )
+
+( 2-z yi atladık )
+
+
+( ch - 3 )
+temmel fikir
+
+* veri enerji şeklinde kodlanır ve enerji gönderilir.
+* hedefte enerji tekrardan veriye dönüştürülür.
+* enerji elektrik, ışık, radyo dalgası , ses vb biçimde olabilir.
+* enerjinir her bir formu iletişim için farklı özellikler ve gereksinimler içerir.
+
+iletişim ortamı
+
+* iletilen enerji iletişim ortamlarının biri üzerinden taşınır
+* gönderici veriyi enerji şeklinde kodlar enerji ortam üzerinden gönedririlir
+  - veri kodlaması için özel bir donanım gerektirir.
+  - iletişim ortamına bağlantı kuracak bir bağlantı da gerektirir.
+* ortam bakır cam hava olabilir...
+
+bakır tel
+
+coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
+
+
+cam fiber
+
+* ince cam fiberler ışık şeklinde kodlanmış datayı taşır
+* plastik kaplama kırılmadan fiberin bükülmesine olanak sağlar
+* fiber etkili bir iletişim için iç ortamda ışığın yansıyabilmesi amacı ile oldukça düzgün tasarlanmıştır
+* şık veren diot veya lazer fiberin içerisine ışık gönderir
+* diğer uçtaki ışık duyarlı alıcı ışığı tekrardan veriye dönüştürür
+
+radyo dalgaları
+
+* veri adyo dalgaları kullanarak iletilir
+* enerji bakır veya camdan ziyade hava içinden gönderilir
+* radyo tv ve cep telefonları buna örnek olarak gösterilebilir.
+* radyo dalgaları duvarın içerisiden geçebilir.
+* uzak mesafe veya kısa mesafe habrleşmede kulllanılabilir
+* uuzak mesafe haberleşme uydular yardımı ile gerçekleşir.
+* kısa mesafe haberleşmede ise kablosuz bilgisayar ağları örnek olarak verilebilir.
+
+mikrodalgalar
+
+yüksek binalara monte edilen antenler aracılığı ile iletilir.
+
+infrared dalgalar
+
+infrare ışığı veriyi havanın içinde taşır
+odanınn içerisinde yayılabilir
+yüzeylerden sekebilir ancak duvarlardan geçemez
+gündelik hayatta çok fazla yardımı oluyor
+
+lazer
+
+mikrodalgadan daha hızlıdır
+her uçta br lazer gönderici ve bir ışık duyarlı alıcı kullanır
+tipik olarak binalar arasında bir nokgtadan bir noktaya transfer için kullanılır
+hava koşullrından olumsuz etkilenir
+
+bakır kablo eski ve yaygın bir teknolojidir, sağlan ve ucuzdur fakat maximum transfer hızı sınırlıdır
+labaratuar ortamında bakır kablo maximum 95mb/s dir
+
+fiber:
+* yüksek hızlıdır
+* elektromanyetik bozulmaya göre daha dayanıklıdır
+* daha uzak mesafeleri kapsar
+* tek bir fiber kabloya ihtiyaç varü
+* daha pahalı vedaha hassas 
+* radyo ve mikrodalga fiziksel bir bağlantoya ihtiyaç duymaz
+* radyo ve infrared mobil bağlantılar için kullanılabilir
+* lazer de fiziksel bir bağlantıya ihtiyaç duymaz
+
+
+ktu dekşi yapıya bakmak gerekirse
+
+bakır ya da fiber uzun mesafeler için
+binalar arası fiber
+bina içi bakır 
+
+
+( chapter 4 )
+
+bit bazında veri aktarımı
+
+* veri iletiminin gereksinimleri
+ - bitler enerji ile şifrelenir
+ - enerji ortam üzerinden iletilir
+ - enerji bite dönüştürülür 
+
+* enerji elektrik radio infrared olabilir
+* gönderici ve alıcı kodlama tekniği ve iletişim zamanlaması konularında uzlaşmalıdır 
+
+asenkron iletişim
+
+* asenkronun bir tanımı da :gönderici ve alıcı her bir verinin iletiminde açıkça koordine olmazlar
+ - gönderici iletimler arasında keyfi bir süre bekleyebilir.
+ - örnek olarak asenktron cihaza klavye verilebilir. fakat gönderilecek veri olmayabilir.
+* asenkron iletişimde verinin nerede başlayıp nerede bittiği hakkında açıkça bir bilgi yoktur.
+
+bitleri gönderirken elektrik akımının kullanılması
+
+* temel fikir şudur ki lojik 1 ve lojik 0 a karşılık gelen voltaj değerlerinin kullanılması.
+* yaygın bir kodlama tekniğii lojik 1 için negatif lojik 0 için pozitif voltajı kullanır.
+* aşağıdaki şekilde gönderici hatta lojik 0 için pozitif voltaj lojik 1 için pozitif voltaj koyar.
+
+
+gönderici ilk biti (1 {1 0 0 1}) negatif  kodlar ve alıcıya doğru biti iletir
+
+iletişim zamanlaması
+
+* kodlama şeması aşağıda birkaç tane cevaplanmamış soru geride bırakmıştır
+  - her bir bit için voltaj uzunluğu ne kadar olacak
+  - bir sonraki bit ne kadar zaman sonra başlayacak
+  - gönderici ve alıcı bu zmanlama konusunda nasıl uzlaşacaklar
+* standartlar iletişim sistemlerinin işleyişini belirler
+  - farklı satıcılardan elde edilen cihazların hepsi birlikte çalışabilecek şekilde standartlara uymalıdır.
+  - Organizasyon örnekleri :
+    # ITU
+    # EIA
+    # IEEE
+
+RS-232
+
+*Bakır kablolar üzerinden karakterlerin gönderimi için kullanılan standardtır.
+*EIA tarafından üretilmiştir.
+*Tam adı RS-232-C
+*Seri asenkron iletişiim sağlar.
+  - seri -> Bitler kodlanır ve herbiri bir birim zamanda iletilir.
+  - asenkron -> Karakterler herhangi bir zamanda gönderilebilir ve bitler senkronize değildir.

@@ -1,0 +1,193 @@
+optik radyo ve dailup modemler
+
+* özelleşmiş veri devlererine (kablo modem) ek olarak diğer ortamlarda da kulanılan modemler de vardır.
+* veri kodlaması için modülasyon tekniğini kullanan dönüştürücülerin kodlanması ve çözülmesinin özel bir formudur.
+	- Cam( fiber ) - veri modüle edilmiş ışık şeklinde kodlanır
+	- radyo - veri modüle edilmişradyo sinyali şeklinde kodlanır
+	- Dailup - veri modüle edilmiş ses şeklinde kodlanır
+* Dailup ( 56k modemler ) modemler sıradan telefon hattına bağlanırlar.
+
+
+evdeki bilgisayar -- rs232 -- modem --   -- modem -- rs232 -- evdeki bilgisayar 
+( rs232 kısa mesafeli haberleşmede kullanılan sistem )
+
+Dailup modemler
+* veri gönderme için bir devredir
+* Bu devre telefon işleyişini temsil eder
+	- ahizeyi kaldırma
+	- çevirme
+	- hatta bekleme 
+	- çevir sesinin tespiti
+	
+* tekbir ses kanalı üzerinde çift yönlü iletişim vardır
+	- her bir yön için farklı taşıyıcı frekanslarını kullanarak
+* Gürültüyü filtreler
+
+Dailup modemlerin işleyişi
+* Alıcı modem cevap modunda aramayı bekler
+* diğer modemler (gönderici - arayan):
+	- ahizeyi kaldırma işlemini taklit eder
+	- dial tone gelmesini bekliyor
+	- çevirilen numaraya verinin gönderimi
+* cevap modundaki modem
+	- Aramayı tespit eder
+	- 
+	- taşıyıcı gönderir
+*
+* veri transferi
+
+taşıyıcı frekansları ve çoğullama
+* veri birden çok sinyalle aynı ortamda gürültü olmadan taşınabilir. 
+	- bu bize eş zamanlı olarak çoklu veri akışı olanağı sağlar
+	- Dailup modemler tek bir ses kanal üzerinde çift yönlü iletişim gerçekleştirebilirler
+* örnek - aynı hava ortamı içerisinde çoklu tv yayınları
+* her bir ayrı sinyal bir channel( kanal ) olarak adlandırılır.
+
+Çoğullama
+* bir ortam üzerinde birden çok sinyalin taşınması işlemi multiplexing olarak adlandırılır
+
+birden çok kaynak - pultiplexor denilen bir araca bağlanır bu aygıt bir kanal yardımı ile demultiplexor a bağlanır ve bu araca da kaynaklar bağlanır
+
+* frekans bölütlü çoğullama farklı taşıyıcı frekansları kullanarak çoğullama işlemini gerçekleştirir
+* alıcı belirli bir frekansa ait sesi (tune) alabilir ve o kanal için veriyi elde edebilir.
+	- Frekanslar gürültüden kaçınmak amacı ile ayrılmak zorundadır
+	- farklı frekanslarla birden çok sinyalin taşınabildiği ortamlarda oldukça yararlıdır. (sonuç olarak yüksek bant genişliğine ihtiyacımız vardır)
+
+Spektrum Çoğullama
+* çoklu taşıyıcıları kullanır
+* tekli veri akışı parçalanır ve farklı frekanslar üzerinden gönderilir
+* gürültünün üstesinden gelmek veya hat dinlemesi gibi olası durumlardan kurtulmak için kullanılabilir
+
+Zaman bölütlü çoğullama
+* zaman bölütlü çoğullama tek bir taşıyıcı kullanır ve veriyi sıralı olarak gönderir
+* gönderici ve alıcı çifti tek bir kanalı paylaşırlar.
+* birçok bilgisayar ağı paylaşımlı ortamı kullanır
+
+ÖZET
+* uzak mesafe haberleşme güvenilir iletişim için taşıyıcı ve modülasyon tekniğini kullanır
+* modulatör veriyi kodlar ve demodulatör çözer
+* genlik frekans veya fazkaymalı teknikler kullanılabilir
+* çoklu gönderici alıcı çifti tek bir ortamı paylaşmak için multiplexingi kullanır.
+
+chapter 6
+
+Paylaşımlı iletişim ortamı
+* Çoğu network bilgisayarları birbirine bağlayan paylaşımlı bir ortamı kullanır 
+* fakat birim zamanda yanlızca bir kaynak veri transferi yapabilir.
+
+Paketler
+* Çoğu network iletişim için veriyi paket adı verilen küçük bloklara böler 
+* her paket birbirinden bağımsız şekilde gönderilir
+* böyle networkler paket networkler veya paket anahtarlı networkler olarak adlandırılır
+
+Motivasyon
+* Koordinasyon- Gönderici ve alıcı verinin doğru alınıp alınmadığına karar vermelidir.
+* Kaynak paylaşımı bilgisayarların network altyapısını paylaşımlı olarak kullanmasına olanak sağlar.
+* Networkler adil kullanımı uygularlar. Herbir bilgisayar birim zamanda yalnızca bir paket gönderebilir.
+
+Dedicated Network Access (adil kullanımda kastı ne )
+* 5 MB lık bir dosyayı 56 kbbit/persecond kapasiteli bir modemden bir network boyunca (uzerinden) yaklaşık 12 dk da gönderir.
+* (5x10^6 bytes) * (8 bits) / (60 secs/min) * (56x10^3 bit/second) = 11.9 dk 11.54 sn
+* Bu hesap sonucunda diğer bütün bilgisayarlar başka bir transfere başlamadan önce 12dk beklemek zorunda kalacaklar.
+
+Paket Anahtarlamalı Erişim
+* Eğer bir dosya paketlere ayrıştırılırsa diğer bilgisayarlar bütün dosyadan ziyade yalnızca paketin gönderilmesini beklemek zorunda kalacaktır.
+* Önceki örneğimizden kaynak dosyamızın 1000 Byte lık paketlere bölündüğünü varsayalım.
+* Herbir paket gönderim için 0.2 saniyeden az bir zaman alacaktır.
+* (1000 bytes) * (8 bit ) / (56x10^3 bits/second) = 0.143 second Saniyenin sekizde biri yaklaşık olarak 
+* Diğer bilgisayarlar transfere başlamadan önce yalnızca 0.143 saniye beklemek zorundadır.
+* NOT:
+ -> Eğer her iki dosyanında 5MB olduğunu düşünürsek herbirinin transfer edilmesi için gereken süre 24 dk olacaktır.
+ -> Fakat eğer ikinci dosya yalnızca 10KB uzunluğunda ise ikinci dosya yalnızca 2.8 saniyede transfer edilebilecek ve 5MB lık dosya yine yaklaşık olarak 12 dk zaman alacaktır.
+
+Zaman bölütlemeli çoğullama
+* Verinin küçük paketlere bölünmesi zaman paylaşımını çoğullamaya olanak sağlar
+* her paket kaynaktan ayrıdır ve ortak bir iletişim kanalı multiplexor üzerinden ortak bir iletişim kanalına aktarılır.
+* hedefte paket demultiplexor üzerinden hedefe aktarılır. 
+
+Zaman bölütlemeli çoğullama örnek
+birim zamanda bir bilgisayar çifti haberleşme linkini kullanarak veri alışverişi yapar
+
+paketler ve frame'ler
+* paket terimi verinin küçük bir bloğununa karşılık gelir
+* her bir donanım teknolojisi farklı paket formatı kullanır
+* frame veya hardwareframe belirli bir donanım teknolojisi üzerindeki belirli bir yapıya sahip paketi gösterir
+
+frame Formatları
+* veriye ait framenin başlangıcını ve bitişini belirtmek için standart bir format tanımlamamıza ihtiyaç vardır.
+* header ve trailer ifadeleri frame için kullanılırlar
+
+frame standartlarının tanımlanması
+* çerçeveleme için iki tane kullanılmayan veri değeri seçilebilir
+* örnek-
+	eğer veriniz yazılabilir ascii ifadeleri ile sınırlı ise bu durumda
+	-> 'startd of header' ( soh )
+	-> 'end of text' ( eot )
+* gönderici bilgisayar öncelikle soh ifadesini gönderir ardından datayı gönderir ve son olarak da eot ifadesini gönderir.
+* alıcı bilgisayar soh ifadesini yorumlar ve gözardı eder verileri buffer da depolar ve eot ifadesini de yorumlayıp göz ardı eder
+
+frame format
+soh - block data in frame - eot
+
+paket çerçeveleme
+* gönderici alıcıya birim zamanda bir karakter gönderir
+
+uygulamada çerçeveleme
+* extra yük oluşturur- soh ve eot un iletilmesi zaman  alırfakat herhangi bir veri taşımazlar
+* iletişim problemleri barındırır
+	-> kayıp eot ifadesi gönderici bilgisyarın arızalandığına işaret eder
+	-> kayıp soh ifadesi alıcı bilgisayarın mesajın başını kaçırdığına ifader 
+	-> bu tür kötü frameler göz ardı edilir
+ 
+Belirli bir veri transferi
+* sisteminizin çerçeveleme için 2 tane özel karakter barındıramadığını var sayalım
+* örnek 8 bitlik ikili bir verinin transferi
+* bu durumda verinin parçaları olan soh ve eot çerçeveleme verisi olacak şekilde yanlış yorumlanacaklardır
+* gönderici ve alıcı transferin düzgün şekilde yapılabilmesi için özel karakterlerin kodlanması noktasında uzlaşmalıdır.
+
+Veri istiflemesi
+* ayrılmış byte ların kodlanması için eklenen ekstra veri nıktasında kullanılan iki teknik bit stuffing ile byte stuffing dir
+* byte stuffing her bir ayrılmış byte ın iki tane ayrılmamış byte a dönüştürür.
+örnek - esc yi örnek olarak kullanabiliriz, arkasından da soh için x i eot için y yi kullanacağız ve unreserved esc yi belirtmek için escnin arkasından z yi kullanacak
+
+byte stuffing
+* gönderici her bir ayrılmış byte ın uygun kodlanmış byte çiftlerine dönüştürür.
+* alıcı byte çiftlerini yorumlar ve kodlanmış byte ı buffer a depolar
+* veri halen soh ve eot tarafından çerçevelenmiş durumdadır
+
+byte stuffing örneği
+* alıcı esc ve y yi veri içerisindeki eot karakterine karşılık gelecek şekilde yorumlar ve sonrasında alıcı alınan veriyi kaydeder
+
+iletişim hataları
+* harici elektromanyetik sinyaller veri teslimatında bozuntuya sebep olabilir
+	-> veri düzgün bir şekilde alınamayabilir
+	-> veri kaybolabilir
+	-> istenmeyen veriler üretilebilir
+* bu problemlerden herhangibiri iletişim hatası olarak adlandırılır
+
+Hata tespiti ve düzeltme
+* hata tespiti - hata tespiti için ek bir bilgi gönderilir ve böylece doğru olmayann veri tespit edilip reddedilir(gözardı).
+* hata düzeltme - hata düzeltme için ek bir bilgi gönderilir ve böylece doğru olmayan veri düzeltilebilir ve kabul edilebilir
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

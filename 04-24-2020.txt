@@ -1,0 +1,129 @@
+Örnek frame format
+
+8 byte lik premble (senkronizasyon için kullanılır)
+-- header--
+6 bytlık hedef adres 
+6 byte lik kaynak adresi
+2 byte lik frame tipi
+--header--
+--payload--
+geri kalan frame içerisindeki veri bilgisi 46 ile 1500 byte arasında değişir
+--payload--
+4 byte CRC
+
+Ethernet alanları
+* preamble ve crc genelde gösterilmez
+* eğer hedef adres bilgisinin hepsi 1 ise bu broadcast adresidir
+* bazı değerler frame tipi alanı için ayrılmıştır
+
+Tip alanı olmayan frameler
+* bazı yerel ağ (lan) teknolojileri tip alanı içermez bu durumda 
+* gönderici ve alıcı framenin yorumlanması aşamasında uzlaşmalıdır
+ - tek bir veri formatı uzerinde uzlamşa sağlanacak 
+   / yanlızca o format kullanılacaktır
+   / yerel ağ üzerindeki bütün bilgisayarlar bu tek formatı kullanmak zorundadır
+ - data alanının ilk birkaç byte içerisinde veri formatı kodlanabilir
+
+Verş tşpinin kodlanması
+* veri alanının ilk birkaç byte içerisinde veri formatı kodlanacaktır
+* evrenselliği sağlayabilmek amacı ile evrensel kabul görmüş bir format kullanılmalıdır
+* bu format standart kuruluşlar tarafından belirlenöiştir
+
+IEEE 802.2 LLC
+3 byte lik bir llc bilgisi peşinden 5 byte lik snap bilgisi vardır
+günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
+
+Bilinmeyen tipler
+* herhangi bir kodlama tekniği ya da bilgisayarlar tarafından alınan bazı frame tipleri henüz bilgisayarın tanımadığı bir tipte olabilir
+  - protokol tipi kurulmamış
+  - yeni tanımlanmış
+
+Network analyzers
+* notwork analyzer, network monitor ya da network sniffer bir ağın performansını inceleme noktasında veya ağın hatalarını tespit noktasında kullanılabilir
+* veya belirli bir framenin ağın üzerindeki dağılımını, çakışma oranını, kapasite kullanımını, tokenin ağdaki dönüş süresini gibi istatistik sonuçlarına ulaşabiliriz
+* veya belirli bir frameyi görüntüler ve kayıt edebiliriz, paket iletimlerini ve paket alışverişlerini anlamak ve tespit etmek amacı ile kullanabiliriz
+
+network analyzer çalışma şekli
+* temelfikir şudur network arayüzüne sahip bir bilgisayar ağdaki bütün servisleri alır
+* promisicuous mode bazen çağırılır
+* birçok masaüstü bilgisayarı bir ağ arayüz kartına ship formülsüz mod olacak şekilde konfigure edilebilirler
+  - yazılım ile birlikte combine edilip, bilgisayarın yerel ağ üzerindeki herhangi bir framenin incelemesi sağlanabilir
+  - yerel ağ üzerindeki haberleşme asla bunun özel olacağını garanti etmez
+* bilgisayar yerel ay üzerindeki frameleri alır ve bunları görüntüler
+
+Gelen framelerin filtrelenmesi
+* analyzer frameleri filtreleyecek ve bunlar üzerinde çalışacak şekilde konfigüle edebilir
+  - belirli bir tipteki veya belirli bir boyuttaki frameler sayılabilir
+  - belirli bir bilgisayardan gelen veya berirli bir bilgisayara giden frameleri görüntüleyebilir
+  - genel olarak sizin belirttiğiniz filtredeki kıstasları karşılayacak şekilde bazı frameler yakalanacak şekilde de konfigure edilebilir
+* analyzerlar belirli bir zaman periyodu üzerindeki toplam hesaplamayı gçsterecek şekilde realtime performansı size gösterebilirler
+
+özetle
+* lan teknolojileri donanım adresleri kullanırlar bu adresler ortak iletişim hattı üzerinden gönderilen frameler için hedef adresi tanımlamada kullanılır
+* her bir yerel ağ teknolojisinin kendine özgü bir donanım formatı vardır
+* adresler static otomatik veya configurable dinamik şekilde atanabilir
+* her bir bilgisayarın yerel a üzerinde eşsiz bir adrese sahip olması gerekir
+* frameler hedef adres için bir başlık bilgisi barındırırlar kaynak ve diğer bilgiler de yine bu hader bilgisi içerisinde bulunur
+* frame tipi frame verisinin nasıl yorumlanacağını tanımlar
+* network analyzer gelen bütün frameleri alır ve buna bağlı olarak istatistiki sonuçları size görütüleyebilir veya ortaya çıkacak hata problemlerinde yardımda bulunabilir
+ 
+chapter 9
+
+Giriş
+* Arayüz kartları
+ - neden ayrı bir kart yapılıyor
+ - bu interface yi bilgisayara nasıl bağlıyacağız
+ - tranceiver nedir
+* Lan kablolama şemaları* mantıksal ve fiziksel topoloji
+
+Yerel ağ ve bilgisayarların hızı
+* yerel ağdaki veri iletim hızı tipik olarak cpu hızlarına göre daha hızlıdır
+* 100mhz lik bir cpu 100mhz lik bir ethernet üzerindeki her bir bit için bir emir icra edebilir
+* yerel ağ hızları spesifik bir işlemci hızından bağımsız olarak tasarlanmıştır
+ - karışık bağlı sistemlerin çalıştırılabilir olmalarını sağlar
+ - yeni bilgisayarlar ağ hızını etkilemeyecek şekilde sisteme etkilemeyebilir
+
+Network interface hardware
+* cpu ağ hızında veriyi işleyemez
+* bilgisayar sistemleri ağ baplantısı için özel amaçlı bir donanım kullanırlar
+ - bu tipik olarak bu arka plandaki ayrı bir karttır
+ - Network adapter card veya network interface card (NIC)
+* bilgisayarın arka tarafında bir bağlantısı vardır ve fiziksel network üzerinden kablo ile bu verileri kabul eder
+
+Nıcs and netwok hardware 
+nic fiziksel network un bir türü için geliştirilmiştir
+ - ethernet arayüzü token ring ile birlikte kullanılamaz
+ - atm arayüzü fddi ile birlikte kullanılamaz
+* Bazı NIC ler farklı ve benzer donanımlar ile kullanılabilir
+ - thick, thin, 10BaseT
+ - 10mbps ve 100mbps ethernet
+ 
+Nıc ve Cpu işleme
+* nic sistem cpu sundan bağımsız olarak veriyi işleyebilecek yeterli derecede donanıma sahiptir
+ - bazı nic lerin kendilerine özgü mikro işlemcileri de vardır
+ - bunlar içerisinde (nics) analog bir devre, sistem yolarına bir bağlantı, bufferlama ve işlem
+* bu nickler tıpkı diğer giriş çıkış aygıtları gibi sistem cihazına bir giriş çıkış aygıtı olarak görülür
+ - sistem cpu su mesaj isteğini gösterir, 
+ - verinin iletileceğine dair emirleri nic e gönderir
+ - veri geldiğinde de interrupt ile birlikte verinin geldiği bilgisini ethernet kartından alır
+
+nic ve fiziksel network arasındaki bağlantı
+* 2 altarnatif
+ - nic bütün bağlantı devresini içerir ve doğrudan network ortamına bağlanır
+ - nic den gelen kablo ek bir devreye bağlanır bu ek devre de bizi network ortamına bağlar
+* thin ethernet ile 10Base-T
+* bunların ikisi de ethernet teknolojisindedir network teknolojisi bir bağlantı ile sınırlı değildir
+
+Thick eternet kablolama
+* coax kablo kullanır
+* AUI kablo bu bizi nic den transceiver denilen aygıta bağlar
+* nic üzerinden gelen dijital sinyalleri tranceiver e taşır
+* tranceiver gelen dijital sinyalleri analog sinyale çevirir ve coax kabloya verir
+* AUI içerisindeki kablosu içerisindeki hatlar dijital sinyalleri, güç ve diğer kontrol sinyallerini taşır
+
+Bağlantı çoğullama
+* bazı durumlarda tranceiver lar uygun olmayabilir örnek labarotuarlardaki workstations lar
+*  bağlantı çoğullayıcı birden çok bilgisayarı tek bir tranceiver a bağlar
+ - her bir bilgisayarın AUI kablosu bilgisayarı multiplexor a bağlar 
+ - AUI da multiplexor dan coax kabloya bağlar
+* çoğullayıcı tamamı ile bağlı bilgisayarlara görünmezdir
