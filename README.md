@@ -1509,6 +1509,79 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
 * böylece heer bir paket için paket switch hedefi tabloda arar ve kendisine gelen veriyi bağlantı üzerinden bir sonraki switch e iletir
 
 
+### (ue11- 21 / 05 / 2020)
+
+## Kaynak bağımsızlığı
+* hedefe doğru olan bir sonraki atlama noktası paketin kaynağından bağımsızdır
+* buda kaynak bağımsızlığı olarak adlandırılır
+* hızlı ve etkili yönlendirmeye sağlar 
+* paket switch bütün tam bilgiye sahip olmasına gerek yoktur bilmesi gereken tek bilgi next hub dur
+  - tutulan toplam bilginin azalmasına sebep olur
+  - dinamik sağlalığı da artırır - network bütününde bir topoloji değişikliği olduğunda  networkun bütününü bilgilendirmediğinde dahi network çalışmaya devam eder
+
+## hiyerarşik adresleme ve yönlendirme
+* yönlendirme işlemini routing olarak adlandırılır
+* yönlendirmeye ait bilgi yönlendirme tablolarında tutulur
+* birçok girdiler aynı next hub a asahiptir
+* özel olarak aynı switch üzerindeki bütün hedefler aynı next huba sahiptir
+* böylece yönlendirme tablosu daraltılabilir
+
+## wan mimarisi ve kapasite
+* ne kadar çok bilgisayar o kadar çok trafik
+* wanın kapasitesini artırmak daha fazla link ve daha fazla paket switch ile gerçekleştirilir
+* paket switch lerin bilgisayarlara bağlı olması gerekmez
+* interior switch - bağlı olmayan bilgisayarlar
+* exterior switch - bağlı bilgisayarlar
+
+## Wan da yönlendirme
+* hem iç hem de dış switchler
+  - paketleri iletirler
+  - yönlendirme tablolarına ihtiyaçları vardır
+* olmalı:
+  - universal routing - olası her durum için bir next hub mevcuttur
+  - optimal routes - hedefe doğru olan en kısa yolu bulunup next hubun buna göre belirlenmesi
+
+## Wanın modellenmesi
+* graph lar kullanılır
+  - swiitchler nodlara
+  - kenarlar da paket switchler arasındaki bağlantılara karşılık düşürülmüş
+* ağın özünü yakalar, bağlı bilgisayarları yoksayar
+
+## Rota hesaplaması
+* yönlendirme tabloları kenarlar ile temsil edilir
+* graph algoritmaları ile en kısa yolların bulunması ve ona göre next hub seçimlerinin yapılması gerekir
+
+## yönlendirme tablolarındaki fazlalık 
+* node1 için yönlendirme tablosundaki bilgi çoğullanmıştır (fazlalıktır)
+* switch 1 yanlızca 1 tane giden bağlantıya sahiptir dolayısı ile btün trafik o bağlantı üzerinden geçmek durumundadır
+
+## varsayılan yönlendiriciler
+* yönlendirme tablolarındaki girdileri default bir yol ile sıkıştırabiliriz
+* hedefin açık bir yönlendirme tablosu yoksa varsayılan rotayı kullanabilir
+* node 3 için default route nin kullanılması bir seçenektir
+
+## yönlendirme tablolarının inşaası 
+* bilgiler yönlendirme tablolarına nasıl girer
+  - manual - başlangıç dosyası ile
+  - bynamically - doğrudan koşma zamanlı bir arayüz vasıtası ile veya sistemin kendisinin gerçekleştirmesi sağlanır
+* yönlendirme tablosu bilgisi nasıl hesaplanır
+  - static yönlendirme - başlangıç zamanında
+  - dynamic yönlendirme - bir program vasıtasi ile belirli zamanlarda bilgiler gelecek bu bilgiler sayesinde otomatik olaral girdilerin güncelleme işlemi gerçekleşecektir
+* static basittir fakat network topolojisindeki değişikliklere adappte olamaz
+* dynamic olanı ise ek protokol veya protokollar gerektirir burada da hata durumunda bir switch devre dışı kalsa bile sistem yeniden adapte olup çalışmaya devam edebilir
+
+## bir graf içerisindeki en kısa yolun hesaplanması
+* netwrktaki her bir düğümü bir graph şeklinde gösterdiğimizi var sayalım
+* wanı graph şeklinde modelledikten sonra her bir paket switch den dipğer her bir noda olan en kısa yolu  hesaplamak için sjixra algoritması kullanılacaktır
+* ve böylece sonuçta oluşan yol bilgisinden bir sonraki atlama noktası tespit edilmiş olunacaktır
+* next-hub bilgilerini yönlendirme tablolarına ekleme
+
+## Ağırlıklı graph
+* dijixtra algoritması graphın içerisindeki kenarların ağırlığına dayanır
+* en kısa yol en düşük toplam apırlığa sahip yoldur
+* shortest path en az kenarı veya en az hub içercek diye bir kaygısı yoktur
+
+
 
 
 
