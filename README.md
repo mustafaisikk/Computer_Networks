@@ -1221,6 +1221,100 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
 * eğer hedef kendi listesinde yoksa ilgili her bir frameyi iletmeye devam eder
 
 
+### (ue8 - 08 / 05 / 2020 )
+
+## bridgelerin filtrelenmesinin başlangıştaki davranışları
+* başlangışta bütün bridgelerdeki yönlendirme tabloları boştur
+* yerel ağdaki her bir istasyondan gelen ilk frame bütün lan segmentlerine iletilir
+* bütün istasyonlar tannımlandıktan sonra yanlızca gereken frameler iletilir
+* buda beraberinde büyük bir trafik patlaması getirebilir, örneğin güç kesintisi
+
+## Bridge filtreleme ile designig 
+* Bridge filtreleme trafik yerelse farklı lan segmentlerinin eş zamanlı olarak kullanımına izin verir
+* U ve V frameleri değiştirir iken aynı zamanda X ve Y de frameleri değiştirir (transfer olabilir)
+* Bridgeler yardımı ile iletişimde bulunan bilgisayar gruplarını izole edebilir ve yerel haberleşme paternleri tanımlanabilir
+
+## Binalar arası köprüleme
+* fiber modemler ile birlikte AUI kablosu kulllanılabilir
+* farklı bir binadaki lan segmentine bir binanın içerisinde uzun bir bağlantı ile bridge koyarak bu bağlantıyı sağlayabiliriz
+* uzak binada her bir bilgisayar için AUI bağlantısından sakınılır
+
+## Uzak mesafeler üzerinde köprüleme
+* mikro dalga , lazer , uygu bridge yardımı ile lan segmentlerini bağlamak için kullanılabilir
+* Bir yerine iki bridge kullanımı;
+  - her iki uçta da filtreleme yapar, yavaş bağlantılar üzerinde trafiği azaltır
+  - her iki uçta da buffer lama yapar, farklı iletim hızlarında eşleştirmeye çalışır
+
+## Bridgeler ve döngüller
+* birden çok bridge yi bir çok lan segmntini birbirine bağlamak için kullanabiliriz
+* segment c de bulunan bir istasyon frameyi g segmenti üzerindegi bir istasyona göndermek isterse B2, B1, B3, B6 üzerinden gider
+* broadcast bütün bridgeler vasıtası ile gönderilir
+* g ile f arasına bir bridge koyulur ise ne olur? ( g ile f arasında göngü vardır )
+
+## Broadcast döngülerini ortadan kaldırma
+* bridgeler brodcast mesajlarının tam olarak her bir segmentte bir defa yayınlanacağı noktasında uzlaşmalıdır
+* graph teorosi ile çözebiliyoruz, açılım ağaçları ile - bridgelerin broadcats mesajlarını nasıl ileteceği noktasında karar vermeleri aşamasında kullanılır
+* her bir bridge networke eklendiğinde diğer bridgeler ile özel bir donanım adresi vasıtası ile haberleşir
+  - network topolojisini öğrenir
+  - eklendiği anda spanning tree hesaplamasını gerçekleştiriyor
+  - eklenen bridge döngüye sebep olmuş mu?
+
+## Swithing 
+* her bir port için ayrı bir yerel ağ segmentinin efektif olarak yapılandırılması
+* hub a abenzerdir, hub bütün portlar arasında tek bir segmenti paylaştırırdı
+* her bir port için ayrı bir yerel ağ segmenti oluşturur
+* switch ile, aynı anda birden fazla iletim yapılabilir
+* çok daha Yüksek toplam bant genişliği sağlar
+
+## switch ile hub farkı
+* switch cihazı hub a göre daha pahalıdır
+* labarotuar ortamı için hub ı uygun durumlar için de switch i tercih etmek gerekir
+
+## Özet
+* optik fiber ve modemler AUI kablosu ile birlikte tek bir istasyona genişletmek için kullanılabilir
+* repeater lar sadece yükseltici gibi davranırlar (enerji vererek) analog sinyalleri yeniden iletir
+* bridge ler gelen frame nin bütününü alır ve iletir 
+  - çakışmaları iletmezler
+  - hedef segmentlerin çakışmadan kurtulması sağlanır
+* bridge filtreleme yardımı ile frameler yanlızca gerektiği yerlere iletilirler
+  - eş zamanlı olarak yerel iletim noktasında llan segmentlerinin kullanım olanağı sağlar
+  - bridgeler bütün broadcast ve multicast paketlerini iletirler
+* switch ler her bir port başına full lan hızı sağlar , her bir port başına ayrı bir lan segmenti simüle ederler
+
+### (chapter 11)
+
+
+# Uzak mesafe Haberleşme - dijital haberleşme teknolojileri
+
+## Giriş
+* önceki teknolojiler kısa mesafeyi kapsar
+* kısa mesafe üzerinden uzak mesafeye geçebilir miyiz (genişlete bilir miyiz)
+* daha uzak mesafeleri kapsayabilir miyiz örnek Bucknell ile Newyork
+* Bu teknoloji yi Wan diye adlandırılır - 
+* iki katagorisi vardır
+  - uzak mesafeli yerel ağlar arasında
+  - yerel döngüler
+
+## Dijital telefonü
+* telefon sistemi uzak mesafeleri kapsar
+* dijital telefonlar gelişmiş uzak mesafe servisleridir:
+  - daha iyi kalite
+  - daha fazla bağlantı
+
+## Sesin dijitalleştirilmesi
+* sorun: analog ses sinyalinin dijital olarak kodlanması
+* çözümler:
+  - belirli zaman aralıkları ile ses sinyalini örneklemek
+  - analog dijitalconverter kullanarak analog örnek dijitale çeviriliyor
+  - tel ile veriyi yollayıp
+  - Dijital analog conver ile veriyi analoga çeviriyor
+
+## Parametrelerin Örneklenmesi
+* 4000hz sinyalin taşınmasını istiyor isek
+* örnekleme aralığımızın 8000hz olması gerekiyor
+* her bir örneğin boyu (0-255)8 bits
+* bu standard a Pulse Code Modulation (PCM) denir
+
 
 
 
