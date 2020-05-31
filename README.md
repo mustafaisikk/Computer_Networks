@@ -1383,7 +1383,130 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
   - pahalı
   - kullanılan zaman üzerinden ücretlendirilir
   - hemen hemen hızı analog modemler seviyesindedir
+  
+  
+  ### (ue10 - 15 / 05 / 2020)
 
+
+
+## DSL
+* DSL bir teknoloji ailesidir
+  - çoğu zaman xDSL diye adlandırılır
+  - var olan telefon hattı üzerinden yüksek seviyeli dijital hat sağlar
+* yaygın olan formu ADSL
+  - eve gelen bağlantı evden giden hızdan daha yüksektir
+  - download da olan akış bitleri upstream da olan akış bitlerinden fazladır
+* ADSL maximum hızları
+  - 6.144 mbps downstream
+  - 640 Kbps upstream
+
+## ADSL Teknolojisi
+* var olan yerel döngüleri kullanır
+* Çoğu teknolojiye göre yüksek frekansları kullanmanın avantajlarını elde eder
+* eşzamanlı olarak POTS ile birlikte kullanılabilir
+
+## Uyarlamalı iletim
+* bireysel kişilerin aldığı hatlar farklı iletişim karakteristiklerine sahiptir
+  - farklı maximum frekanslar
+  - farklı karışım frekansları
+* ADSL FDM kullanır
+  - 286 frekans
+  - 255 downstream
+  - 31 upstream
+  - 2 kontrol
+* her bir frekans veriyi bağımsız olarak taşır
+  - bütün frekanslar ses sinyalinin dışındadır
+  - her bir frekanstaki kaliteye uygun olacak şekilde bit oranları seçilmesi gerekiyor
+
+## Diğer DSL teknolojileri
+* SDSL (symetric dsl) frekansları eşit bir şekilde böler
+* HDSL (yüksek oran dsl) her iki yönde de ds1 oranında hız sağlanır
+  - kısa mesafeler
+  - 4 tane kablo vardır
+* VDSL (Very hight bit rate DSL) 52mbps hız sağlar
+  - çok kısa mesafeler
+  - Optical Network Unit (ONU) röle gerektirir
+
+## Kablo modem teknolojileri
+* kablo tv zaten yğksek bant genişliğini coax ile evinize kadar getirir
+* kablo modem tablo tv coaxından gelen veriyi kodlayıp çözer
+  - kablo tv merkezinden bir balantıyı sizin network unuze sağlar
+  - evin içinden de bağlantıyı bilgisayara sağlar
+
+## Kablo modemin özellikleri
+* bütün kullanıcılar arasında bant genişliği çoğullanır
+* birden çok erişim vardır ortama; komşularınız sizin verilerinizi görebilir
+* bütün kablo tvye gelen kablolar çift yönlü değildir
+
+## Alternatifler
+* uydu
+* fiber hat döşemek
+
+## Özet
+* wanlar dijital telefon kullanarak binalar arasında bağlantı kuarar
+  - sesin dijitalleştirilmesine dayanır
+  - birkaç standart hız vardır
+  - bu dönüşüm için sesin dijitalleştirilmesinde DSU / CSU kullanılır
+* yerel döngü teknolojileri
+  - ISDN
+  - xdsl
+  - cablo modem
+  - uydu
+  - fiber bağlantı
+
+
+### (Chapter 12)
+
+# Wan teknolojileri ve yönlendirme
+
+
+## Lan ve Wan arasındaki farklar
+* uydu köprüleme vasıtası ile bizler yerel ağlarımızı uzak mesafelere gönderebiliyoruz
+* halen daha belirli grub bilgisayara ulaşabiliyoruz
+* wan uzun mesafe ve birçok bilgisayarı içine alan bir sistem kurmaya çalışıyor
+
+## Paket switching
+* uzak mesafeleri kapsamak veya birçok bilgisayarı içinde barındaırmak için networkler paket switch ler ile birlikte ortak paylaşımlı olarak değişmelidir
+  - her bir switch paketin tamamını bir bağlantıdan diğerine iletir
+  - network arayüzü olan küçük bilgisayarlardır bu swtch ler bellekleri de var aynı zamanda paket switch işlemlerini adanmış bu işleri gerçekleştirmek için program var (paket switch bir donanımdır)
+
+## paket switchlerin baplanması
+* paket switchler bilgisayarlara ve diğer paket switchlere bağlanabilir
+* tipik olarak diğer paket switch lere olan bağlantı hızlıdır, bilgisayarlara olan bağlantı yavaştır 
+* teknoloji detayları arzu edilen hızlara dayanır 
+
+## paket switchlerin blok şeklinde icrası
+* paket switchler wanlar oluşturabilecek şekilde birbirine bağlanabilir
+* wanlar simetrik olmak veya düzenli bağlantılar içermek zorunda değildir
+* her bir switch bir veya birden fazla switch veya bilgisayara bağlanabilir
+
+## Depola ve ilet
+* bir ilgisayardan diğerine veri tesslimatı depola ve ilet teknolojisi vasıtası ile gerçekleştirilir
+  - paket switch gelen paketleri depolar 
+  - ve gelen paketi bir başka switch veya bilgisayara iletir
+* paket switchlerin kendilerine has dahili bellekleri vardır
+  - eğer giden bağlantı dolu ise bu durumda o paketleri depolar
+  - her bir bağlantı için paketler kuyrukta tutulur
+
+## wan içerisinde fiziksel adresleme
+* Lan a benzerdir
+  - veri paketler içinde iletilir
+  - her bir paketin bir formatı ve balığı vardır
+  - paket başlıkları hedef ve kaynak adreslerini içerir
+* birçok wan verimlilik açısından hiyerarşik adresleme kullanır
+  - adresin bir kısmı hedef dwitch i belirtir 
+  - adresin diğer kısmı da ilgili switch üzerindeki portu belirtir
+
+## Next-hop forwarding
+* paket switch gelen her bağlantıyı illetmek için seçim yapmalıdır
+  - eğer hedef yerel bilgisayar ise paket switch teslimatı lgili bilgisayarın portuna yapar
+  - eğer hedef başka bir switch e bağlı ise ilgili switch mesajı bir bağlantı vasotası ile bir başka switche iletir ki o switch e(iletilen switch) next-hop denir
+* seçim işlemi paketin içerisindeki hedef adrese göre yapılır
+
+## Next-hop seçilmesi
+* paket switch olası bütün istasyonlar hakkındaki bütün bilgiyi tutmaz
+* sadece next-hop tutar
+* böylece heer bir paket için paket switch hedefi tabloda arar ve kendisine gelen veriyi bağlantı üzerinden bir sonraki switch e iletir
 
 
 
