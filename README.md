@@ -1315,6 +1315,76 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
 * her bir örneğin boyu (0-255)8 bits
 * bu standard a Pulse Code Modulation (PCM) denir
 
+### (ue9 - 14 / 05 / 2020)
+
+## Senkron Haberleşme
+* ses sinyali tam zamantı tekrardan veriye dönüştürülmesi gerekir
+* dijital telefon clocking sistemlerini kullanırlar verileri senkron göndeermek için
+* trafik ne kadar aratarsa artsın örnekler gecikmez
+
+## Veri teslimatı için dijital telefonun kullanılması
+* dijital telefon ile birlikte senkron veri teslimatını gerçekleştirdik
+* biz bunu veri teslimatı için kullanabilir miyiz (dijital telefon mantığını)
+* ethernet frame si 8-bit PCM senkronizasyonuna uygun değildir
+* dönüştürme işlemine ihtiyacımız vardır
+
+## Dönüştürme işleminde dijital devrelerin kullanılması
+* Veri teslimatı için dijital telefonun kullanımı: 
+  - öncelikle binalar arası point-to-point dijital devrelerin kiralanması
+  - yerel ve PCM formatlarını her bir uçta dönüştürecek cihaslar kullanılacaktır
+* Data Service Unit/Channel Service Unit (DSU/CSU) cihazlarının kullanılması
+  - CSU - kontrol fonksiyonlarını yönetir
+  - DSU - verilerin dönüştürülme işlemi
+
+## Telefon Standartları
+
+![1](https://user-images.githubusercontent.com/52778108/83357539-a43a3280-a375-11ea-9c55-d164b86655f8.PNG)
+
+## Ara Kapasite
+* Fiyat hız ile doğrusal olarak aynı oranda yükselmiyor
+* T3 ün fiyatı T1 in 28 katından daha düşüktür 
+* Ancak eğer 9mbps ihtiyaç olursa 1 T3 alacağımıza 6 adet T1 Alınması Daha Uygun Olur
+* Çözüm birden çok t1 hattı kullanarak test çoğullayıcı yapılabilir
+
+## Yüksek Kapasiteli Devreler
+![2](https://user-images.githubusercontent.com/52778108/83357540-a4d2c900-a375-11ea-854d-82ef941b4814.PNG)
+
+## Terminoloji Hakkında
+* T-Standartları dijital sinyal seviye standtrlarında altında yatan hızı tanımlar
+  - Efektif bit hızı
+  - çağrıları nasıl çoğullayabiliriz
+  - T1 hattı da DS-1 oranında hız sağlar
+* STS standartları ise kablodan hariç daha yüksek hızları tanımlamada kullanılır OC (optical carrier) fiberler için kullanılır
+* C Birleşririlmiş olduğunu gösterir
+  - OC-3 == 3 adet OC-1 51,84 bağlantısı
+  - OC-3C == 1 155,52 Mbps devreye eşittir
+
+## Sonet
+* Synchronous Oprical Network(SONET) nasıl yüksek seviyeli bağlantıları kullanır
+  - STS-1 Optic frame başına 810 byte kullanır
+* koclama: her bir örnek yükte 1 octet olarak nitelenir
+* Yük Değişimi ile veri oranı
+  - STS-1 6,480 biti 125 microsaniyede iletir
+  - STS-3 19,440 biti 125 microsaniyede iletir 
+
+## Eve bağlantıyı alma
+* local loop telefon şirketinden eve gelen bağlantı
+* Bazen POTS(Plain Old Telephone Service) çağırılır
+* Alt yapısı bakır kablodur
+* Diğer kullanabilir yapılar Kablo TV, Wireless, Elektrik bağlantısı
+
+## ISDN
+* dijital servis sağlar (T-servis de denir)
+* 3 adet ayrı kanalı vardır
+  - 2 tane B kanalı vardır 64kbps 
+  - 1 tane D kanalı vardır 16kbps 
+* genellikle 2B+D şeklinde isimlendirilir
+* Bu teknoloji Geride Kaldı
+  - pahalı
+  - kullanılan zaman üzerinden ücretlendirilir
+  - hemen hemen hızı analog modemler seviyesindedir
+
+
 
 
 
