@@ -1583,6 +1583,181 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
 
 
 
+### (ue12 - 22 / 05 / 2020)
+
+## Dijikstra algoritmasının Synopsis i
+* nodların listesi ile birlikte bu noklara olan yolların ağırlığını bir verşi yapısında tutar
+* nodların kümesinde yolu henüz hesaplanmamış olan bir nod için sonsuz değerini kullanır 
+* her bir iterasyonda bu bahsedilen nod kümesi içerisinde bir nod bul ve o noda olan yolu hesapla ve ilgili nodu bilinmeyenler listesinden silmiş ol
+
+## Distance metrics
+* graph kenarlıklarındaki ağırlıklar neye karşılık gelir
+  - zaman
+  - nakti ücret
+  - Hop Count (atladığımız nodlar)
+* sonuçta en kısa yol en az hop içermeyebilir
+
+## Dinamik yol hesaplama
+* network patolojisi dinamik olarak değişebilir
+  - yeni switch ler eklenmesi
+  - bağlantıların kopması
+  - bağlantılar için maliyetler de değişebilir
+* Swith ler bu topoloji değişikliklerine bağlı olarak yönlendirme tablolarını güncellemelidirler
+
+## Dağıtık rota hesaplama
+* network topolojisi hakknda bilgi nod lar arasında dağıtılır
+* bu bilgi periyodik olarak güncellenir
+* bu bilgi sayesinde her node tekrardan en kısa yolu hesaplar ve aynı zamanda yeni next hobları da hesaplar
+
+## Vector-Distance Algoritması
+* yerel bilgi next-hob touting table dir ve her bir swithden olan uzaklıktır
+* Switchler periyodik olarak broadcast yaparak bu topoloji bilgisini yayınlarlar
+* diğer switchler alınan bilgiye bağlı olarak yönlendirme tablolarını güncelliyorlar
+* daha ayrıntılı:
+  - gelecek olan mesjı bekle
+  - mesajların içerisindeki entriler içerisinde dön
+  - gelen mesajın içerisindeki bilgilerden biri hedefe doğru daha kısa bir yol içeriyorsa
+    - ilgili kaynağa next-hob belirlenecek
+    - mesafeyi sonraki duraktan hedef PLUS'a olan mesafe olarak kaydet
+    - o mesafeyi de switchden diğer next hub a aolan mesafe olarak belirleyeceğiz
+
+***************
+vektor distance bernal ford algoritmasını kullanır
+link state dijikstra algoritmasını kullanır
+***************
+
+## Link Durumu Yönlendirmesi
+* network topolojisi yol hesaplamadan bağımsızdır
+* switch yerel bağlantılar hakkında link state bilgisi gönderir
+* bundan haraetle her bir switch kendi yönlendirme tablosunu inşa eder
+  - link state biilgisi global topolojisi bilgisi güncellenir
+  - Dijikstra algoritmasını kullanır 
+
+## Karşılaştırılması
+* Vector Distance Algoritması
+  - genelde 15 hub a akadar destekler
+  - implamenti çok basit
+  - yakınsama problemleri içerebilir
+  - RIP Kullanır
+* Link State Algoritması
+  - hub sınırlaması yok 
+  - daha karmaşık bir yapı
+  - switchler bağımsız hesaplamalar gerçekleştirebilir
+  - OSPF kullanır
+
+## Wan Teknoloji Örnekleri
+* ARPANET
+  - 1960 ların sonunda başladı
+  - ARPA tarafından kuruldu Amerika savunma bakanlığının bir organizasyonudur
+  - birçok yeni fikir algoritma ve internet teknolojisi için hazırlık sağladı
+  - Where Wizards Stay UP Late kitabında devamını bulabilirsiniz
+* X.25
+  - Bağlantı yönelimli ağ için ilk standartları belirleyen teknolojisid
+  - ITU tarafından kuruldu, Orjinali CCITT
+  - zaman paylaşımlı bağlantılalr için ve bilgisayar bağlantılarının ilk kısımlarını oluşturan teknoloji
+* Frame Relay
+  - veri bloklarının dağıtım noktasında kullanılan bir telekom servisi
+  - bağlantı temelli bir servis,iki uc arasındaki devreler için telco ile sözleşme yapmalıdır
+  - tipik olarak 56Kbps ya da 1.5 Mbps ; 100Mpst e kadar çıkabiliyor
+* SMDS - 
+  - Buda bir telekom servisidir
+  - Bağlantısız servistir, herhengi bir smds istasyonunu o ağda bulunan bir başka istasyona bir frame gönderebilir
+  - 1.5 - 100 Mbps e kadar hızı destekleyebilir
+* ATM
+  - Ses video ve veri için tek teknoloji olarak tasarlanmıştır
+  - Low jiter(jiter = teslimat süresindeki bekleme süresi) ve yüksek kapasite
+  - sabit bir boyutu vardır - 48 octets data ve 5 octets header olan bir formatı vardır
+  - bir network içerisinde birden çok atm switch birbirine bağlayabiliriz
+
+## Özet
+* wan istenilen mesafeye yani uzak mesafeyi kapsayabilir ve istenilen sayıda birden çok bilgisayarı birbirine balayabilir
+* paket switch leri ve noktadan noktaya bağlantılar kullanılır
+* paket switchler depola ve ilet mantığını kullanır
+* yönlendirme tablolarını paketleri hedefe teslim etmek için kullanırlar
+* wan lar hiyerarşik adresleme kullanır
+* graph algoritmaları yönlendirme tablolarını hesaplamak için kullanır
+* birçok wan teknolojisi mevcuttur
+
+### (Chapter 12a geçildi)
+### (Chapter 13)
+
+# Network sahipliği 
+* private network - bir organizasyon veya bir şirketin sahip olduğu ağ türü
+* ortak bir taşıyıcının sahip olduğu bir ağ türüdür (örnek telefon şirketleri)
+
+## private network
+* gelende lan teknolojisini kullanır
+* bir bina ya da kampüs içerisinde birbirine bağlı birden çok yerel ağdan oluşabilir
+* çoğu zaman intranet olarak adlantırılırlar
+
+## private netwok mimarisi
+* diğer ağlardan bapımsız olarak çalışır 
+* genel olarak bir veya birden ok birbirine yakın yönetilebilen harici bağlantıları içerir
+* bağlantılarda erişimler kısıtlanabilir
+* örnek Bucnell
+
+## private networklerin yönetimi
+* organizasyon kendi ekipmanına sahiptir
+* bu networku sürdürmek, güncellemek, çalışabilir hale getirmek, dizayn etmek için için eleman kiralar
+* Bütün network yönetiminden ilgili kişiler sorumludur
+
+## Private networklerin genişletilmesi noktası
+* Büyük Organizasyonlar birden çok bina, kampüs içerebilir
+* ama kablolamayı yanlızca kendi mülkiyetine kurabilir
+* ilgili firmalar ortak taşıyıcılardan belirli hatları kiralarlar kendisine özel
+* örnek - UPS
+
+## Public network
+* ortak  bir hat üzerinden gerçekleştirilir
+* telefon firması veya kiralık hatları inşa edecek başka firmalar olabilir
+* birden çok organizasyon bunlara bağlanır ve üye olurlar
+* Data public network üzerinden diğer kuruluşlara dağıtılır
+* Örnek - AT&T
+
+## Virtual Private Network
+* public ve privatenin özelliklerini birleştirir
+* tek bir organizasyon ile sınırlıdır
+* bağlantı için public networku kullanır
+* bağlantılar tunel adı verilen ve siteleri birbirine bağlayan yapılar üzerinden gerçekleniyor
+* her bir site veya bağlantı noktası bu tünelleri bir başka siteye doğrudan doğruya bağlantı olarak görür
+* bu tür ağlar public networkun diğer kullanıcılar tarafından erişilemez ağlarıdır
+
+## Servis Paradigm
+* Bağlantı yönelimli - telefon sistemine benzeridir , iki uç nokta bağlantı kurulur ve bu bağlantı sürdürülür, veri alışverişi olduğu sürece bağlantı sürdürülür veri alışverişi bittiği noktada veri alışverişinin bittiğine dair mesaj gönderilir ve hat o anda kırılır
+* Bağlantısız - bilinen posta sistemine benzer, uç noktaya verileri koyar
+* veriyi bir paketin içerisine koyar ve dağıtması için network e iletir
+
+## Connection Oriented Servise
+* bir uç nokta networkten bağlantı isteğinde bulunur
+* diğer uç nokta bu bağlantı isteğini kabul eder
+* bilgisayarlar bu bağlantı üzerinden veri alışverişinde bulunur
+* tipik olarak stream interface olarak bilinir
+  - veri streamını ağ teslim eder 
+  - ağ teslimat için veriyi paketlere böler
+* veri iletişiminin sürekli olmasına gerek yoktur, aynı telefonda olduğu gibi, veri iletilmi olmadığında dahi bağlantı canlı kalır
+* uç noktalardan bir tanesi transfer tamamlandığında ağ üzerinden istekte bulunur
+
+## Bağlantısız Servis
+* Bağlantıya gerek yok
+* verinin kaynağı hedef bilgisini dataya ekler ve onu ağa teslim eder
+* netwok de her bir veri parçacığını birbirinden bağımsız şekilde teslim eder
+
+## Karşılaştırılması
+* Connection oriented: hesaplanması daha basittir, uygulama network problemleri hakkında hızlıca bilgi sahibi olabilir
+* connectionless - yükü daha azdır, yönetimi daha basittir, uygulanışı daha basitir
+
+## Bağlantı sürekliliği ve kalıcılık
+* balantılar istek anında veya kalıcı larak yapılabilir
+  - Switched connection veya Switched Virtual Circit
+  - Permanent connections yada provisioned virtual circut
+* Kalıcı Bağlantılar
+  - orjinali hard-wired
+  - sistem bağlangıç zamanında konfigure edilir
+* swithed connections
+  - bilgisayar networke olan kalıcı bağlantıyı yönetir ve sürdürür
+  - network istek anında bağlantıyı sağlar
+  - dahili bileşenler switch dir, ağ ise Switched data network dur
+
 
 
 
