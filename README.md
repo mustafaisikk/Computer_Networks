@@ -1138,6 +1138,8 @@ günümüzde kullanılan yapı 802.3 tür (ethernet frame 2 olarak geçer)
 
 ### (Chapter 10)
 
+# LAN'ları Genişletme: Fiber Modemler, Tekrarlayıcılar, Köprüler ve Anahtarlar
+ 
 # Giriş
 * Lan Teknolojileri hız mesafe ve maliyet gibi kısıtlamalar ile dizayn edilmiştir
 * tipik lan teknolojisi çoğunlukla birkaç yüz metreye kadar genişleyebilir
