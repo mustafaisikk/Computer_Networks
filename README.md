@@ -62,7 +62,7 @@ yeni fenomen: günlük aktivitelerimizin önemli bir parçasını ağlar oluştu
 - karmaşıklığı çözmek için soyutlamalara ve kavramlara konsantre olacak
 - Örnekler
   - ağ üzerindeki veri tyransferinin detaylarından ziyade ağdaki kablolamanınn nasıl yapıldığına ilgileneceğiz
-  - sıkışıklığın tanımı ve kavramını yapıp sıkışıklığın çözme tekniklerini konuşacağız
+  - sıkışıklığın tanımı ve kavramını yapıp sıkışıklığı çözme tekniklerini konuşacağız
 
 ## Tarihi motivasyon
 
@@ -129,20 +129,20 @@ TCP / IP 1978 yılında bulundu
 ## Ağ haberleşmesi
 
 - veri bir noktadan bir noktaya transfer olurken ağın kendisini bu durumdan haberi yoktur
-- Ağın kendisi ne gönderilen datayı üretir ne de gönderilen datadan haberi vcardır
-- bütün veri işleme işlemi uygulama pogramı tarafından gerçekleştirilir
+- Ağın kendisi ne gönderilen datayı üretir ne de gönderilen datadan haberi vardır
+- bütün veri işleme işlemlerii uygulama pogramı tarafından gerçekleştirilir
   - ağın iki ucundaki kullanıcılar ağı sadece veri alışverişinde (mesaj değiş tokuşunda) bulunmak için kullanılır
   - böyle bir veri tabanı istemcisi merkez veri tabanına erişir
-  - istemci (remoor computer -uzak bilgisayar-) tarafındaki uygulama veri tabanı ( server ) bilgisayarındaki koşan uygulamaya bir istek gönderir
+  - istemci (remote computer -uzak bilgisayar-) tarafındaki uygulama veri tabanı ( server ) bilgisayarındaki koşan uygulamaya bir istek gönderir
   - Yanlızca bu iki uygulama mesajların formatını ve anlamını anlar
 
 ## istemci sunucu mimarisi
 
 - nasıl oluyor da bu kadar büyük bir internet yapısında iki program birbirini bulabiliyor
 - internet basit bir mekanizma kullanır
-  - bir uygulama ilk olarak koşar ve iğer uygulamanın ona bağlantı kurmasını bekler
+  - bir uygulama ilk olarak koşar ve diğer uygulamanın ona bağlantı kurmasını bekler
   - ikinci uygulama birinci uygulamanın nerede olduğunu bilmek zorundadır
-- işte bu yapı istemi sunucu mimarisi olarak bilinir
+- işte bu yapı istemci sunucu mimarisi olarak bilinir
 - bağlantı için bekleyen program server olarak adlandırılır ve başlangıçta bağlantıyı oluşturacak program ise client olarak isimlendirilir.
 - internette bir konum bilgisayar ve uygulama çiftlerinin kimlikleri yardımı ile belirlenir.
 - çiftlerden biri olan bilgisayar serverin koştuğu makinayı tanımlarken çiftin diğer tarafı olan uygulama bir bilgisayarda koşan özel bir uygulama programıdır
@@ -155,19 +155,17 @@ TCP / IP 1978 yılında bulundu
   - sunucu uygulaması başlangıçta koşar ve client dan kendisine bir bağlantı bekler
   - client sunucunun lokasyonunu belirleyerek server a bağlantı kurar ve haberleşme isteğinde bulunur
   - client ve server mesaj alışverişini gerçekleştirir
-  - veri gönderme işlemini tamamladıktan sonra hem client hem de serverhaberleşmenin bittiğine dair "end of file" isimli bir mesaj göncerilir.
+  - veri gönderme işlemini tamamladıktan sonra hem client hem de server haberleşmenin bittiğine dair "end of file" isimli bir mesaj göncerilir.
 
 ## bir uygulama programı arayüzü örneği
 
 - şimdiye kadar biz iki uygulama programı arasındaki etkileşim haberrleşmeden bahsettik
 - şimdi bitaz daha işlerin içeriğine inelim
-- bilgisayar bilimcileri uygullama programcısına olanaklar sağayan bir dizi işlevi tanımlamak amacı ile API ( application program interface ) adı verilen terimi kullanır
+- bilgisayar bilimcileri uygulama programcısına olanaklar sağayan bir dizi işlevi tanımlamak amacı ile API ( application program interface ) adı verilen terimi kullanır
 - bir api her bir işlev için gerekli olan argümanları tanımlar
-
-- bit ağ uygulaması global ingetrnet üzerinden çalışan bit uygulama olarak yaratılabilir ki burada adını api olarak
-- tanımladığımız yüksek eviye fonksiyonlar kullanılır
+- bir ağ uygulaması global ingetrnet üzerinden çalışan bit uygulama olarak yaratılabilir ki burada adını api olarak tanımladığımız yüksek eviye fonksiyonlar kullanılır
 - api temel olarak 7 kısımdan oluşur. ( slayt 8 )
-- api ticari uygulamalar iile birilkte çalışabiliecek bir uygulamayı oluşturabilecek kadar yeterlidir.
+- api ticari uygulamalar ile birlikte çalışabiliecek bir uygulamayı oluşturabilecek kadar yeterlidir.
 
 ### ( slayt 2-a yı bitirdik )
 
@@ -180,26 +178,28 @@ TCP / IP 1978 yılında bulundu
 - veri enerji şeklinde kodlanır ve enerji gönderilir.
 - hedefte enerji tekrardan veriye dönüştürülür.
 - enerji elektrik, ışık, radyo dalgası , ses vb biçimde olabilir.
-- enerjinir her bir formu iletişim için farklı özellikler ve gereksinimler içerir.
+- enerjinin her bir formu iletişim için farklı özellikler ve gereksinimler içerir.
 
 ## iletişim ortamı
 
 - iletilen enerji iletişim ortamlarının biri üzerinden taşınır
-- gönderici veriyi enerji şeklinde kodlar enerji ortam üzerinden gönedririlir
+- gönderici veriyi enerji şeklinde kodlar enerji ortam üzerinden gönderirlir
   - veri kodlaması için özel bir donanım gerektirir.
   - iletişim ortamına bağlantı kuracak bir bağlantı da gerektirir.
 - ortam bakır cam hava olabilir...
 
 ## bakır tel
 
-coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
+- Bükümlü çift iki tek kullanır
+- coaxial kablo performansı artırabilmek için "kalkan" içerir 
+- iç tel, izolasyon malzemesi, Metal kalkan, Dış İzolasyon
 
 ## cam fiber
 
 - ince cam fiberler ışık şeklinde kodlanmış datayı taşır
 - plastik kaplama kırılmadan fiberin bükülmesine olanak sağlar
 - fiber etkili bir iletişim için iç ortamda ışığın yansıyabilmesi amacı ile oldukça düzgün tasarlanmıştır
-- şık veren diot veya lazer fiberin içerisine ışık gönderir
+- ışık veren diot veya lazer fiberin içerisine ışık gönderir
 - diğer uçtaki ışık duyarlı alıcı ışığı tekrardan veriye dönüştürür
 
 ## radyo dalgaları
@@ -209,11 +209,13 @@ coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
 - radyo tv ve cep telefonları buna örnek olarak gösterilebilir.
 - radyo dalgaları duvarın içerisiden geçebilir.
 - uzak mesafe veya kısa mesafe habrleşmede kulllanılabilir
-- uuzak mesafe haberleşme uydular yardımı ile gerçekleşir.
+- uzak mesafe haberleşme uydular yardımı ile gerçekleşir.
 - kısa mesafe haberleşmede ise kablosuz bilgisayar ağları örnek olarak verilebilir.
 
 ## mikrodalgalar
 
+- Yüksek frekanslı radyo dalgalarıdır
+- Noktadan noktaya iletişim için tek yönlü
 - yüksek binalara monte edilen antenler aracılığı ile iletilir.
 
 ## infrared dalgalar
@@ -226,11 +228,13 @@ coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
 ## lazer
 
 - mikrodalgadan daha hızlıdır
-- her uçta br lazer gönderici ve bir ışık duyarlı alıcı kullanır
-- tipik olarak binalar arasında bir nokgtadan bir noktaya transfer için kullanılır
+- her uçta bir lazer gönderici ve bir ışık duyarlı alıcı kullanır
+- tipik olarak binalar arasında bir noktadan bir noktaya transfer için kullanılır
 - hava koşullrından olumsuz etkilenir
 
-- bakır kablo eski ve yaygın bir teknolojidir, sağlan ve ucuzdur fakat maximum transfer hızı sınırlıdır
+## Bir Araç Seçme
+
+- Bakır kablo eski ve yaygın bir teknolojidir, sağlam ve ucuzdur fakat maximum transfer hızı sınırlıdır
   labaratuar ortamında bakır kablo maximum 95mb/s dir
 
 ## fiber:
@@ -238,9 +242,9 @@ coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
 - yüksek hızlıdır
 - elektromanyetik bozulmaya göre daha dayanıklıdır
 - daha uzak mesafeleri kapsar
-- tek bir fiber kabloya ihtiyaç varü
-- daha pahalı vedaha hassas
-- radyo ve mikrodalga fiziksel bir bağlantoya ihtiyaç duymaz
+- tek bir fiber kabloya ihtiyaç vardır
+- daha pahalı ve daha hassas
+- radyo ve mikrodalga fiziksel bir bağlantıya ihtiyaç duymaz
 - radyo ve infrared mobil bağlantılar için kullanılabilir
 - lazer de fiziksel bir bağlantıya ihtiyaç duymaz
 
@@ -255,17 +259,15 @@ coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
 ## bit bazında veri aktarımı
 
 - veri iletiminin gereksinimleri
-
   - bitler enerji ile şifrelenir
   - enerji ortam üzerinden iletilir
   - enerji bite dönüştürülür
-
 - enerji elektrik radio infrared olabilir
 - gönderici ve alıcı kodlama tekniği ve iletişim zamanlaması konularında uzlaşmalıdır
 
 ## asenkron iletişim
 
-- asenkronun bir tanımı da :gönderici ve alıcı her bir verinin iletiminde açıkça koordine olmazlar
+- asenkronun bir tanımı da gönderici ve alıcı her bir verinin iletiminde açıkça koordine olmazlar
   - gönderici iletimler arasında keyfi bir süre bekleyebilir.
   - örnek olarak asenktron cihaza klavye verilebilir. fakat gönderilecek veri olmayabilir.
 - asenkron iletişimde verinin nerede başlayıp nerede bittiği hakkında açıkça bir bilgi yoktur.
@@ -273,32 +275,31 @@ coaxial tablo performansı artırabilmek için "kalkan" içerir ( ch 3 slayt 6 )
 ## bitleri gönderirken elektrik akımının kullanılması
 
 - temel fikir şudur ki lojik 1 ve lojik 0 a karşılık gelen voltaj değerlerinin kullanılması.
-- yaygın bir kodlama tekniğii lojik 1 için negatif lojik 0 için pozitif voltajı kullanır.
+- yaygın bir kodlama tekniği **lojik 1 için negatif lojik 0 için pozitif voltajı** kullanır.
 - aşağıdaki şekilde gönderici hatta lojik 0 için pozitif voltaj lojik 1 için pozitif voltaj koyar.
 
 gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 
 ## iletişim zamanlaması
 
-- kodlama şeması aşağıda birkaç tane cevaplanmamış soru geride bırakmıştır
+- kodlama şeması aşağıda birkaç tane cevaplanmamış soruyu geride bırakmıştır
   - her bir bit için voltaj uzunluğu ne kadar olacak
   - bir sonraki bit ne kadar zaman sonra başlayacak
-  - gönderici ve alıcı bu zmanlama konusunda nasıl uzlaşacaklar
+  - gönderici ve alıcı bu zamanlama konusunda nasıl uzlaşacaklar
 - standartlar iletişim sistemlerinin işleyişini belirler
   - farklı satıcılardan elde edilen cihazların hepsi birlikte çalışabilecek şekilde standartlara uymalıdır.
   - Organizasyon örnekleri :
-    -> ITU
-    -> EIA
-    -> IEEE
+    - ITU
+    - EIA
+    - IEEE
 
 ## RS-232
 
-*Bakır kablolar üzerinden karakterlerin gönderimi için kullanılan standardtır.
-*EIA tarafından üretilmiştir.
-*Tam adı RS-232-C
-*Seri asenkron iletişiim sağlar.
-
-- seri -> Bitler kodlanır ve herbiri bir birim zamanda iletilir.
+- Bakır kablolar üzerinden karakterlerin gönderimi için kullanılan standarttır.
+- EIA tarafından üretilmiştir.
+- Tam adı RS-232-C
+- Seri asenkron iletişim sağlar.
+- seri -> Bitler kodlanır ve her biri bir birim zamanda iletilir.
 - asenkron -> Karakterler herhangi bir zamanda gönderilebilir ve bitler senkronize değildir.
 
 ### (02-03-2020)
@@ -307,20 +308,20 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 
 ## RS-232 Detayları
 
-- Standartın özellikleri
+- Standardın özellikleri
   - bağlantı 50 feet den düşük olmalı
-  - verileri ifade eden voltaj seviyesi +15v ile -15v arasındadır
+  - verileri ifade eden voltaj seviyesi +15V ile -15V arasındadır
   - veri, toprak, ve diğer uçların toplamı ile 25 bacaktan oluşur
   - örnek olarak terminal ile modem arasında gönderilecek olan karakterleri belirler
-- gönderici kabloyu asla 0v da bırakmaz; hatta veri olmadığında ( idle ) negatif voltaj ( 1 ) koyar
+- gönderici kabloyu asla 0V da bırakmaz; hatta veri olmadığında ( idle ) negatif voltaj ( 1 ) koyar
 
 ## asenkron karakterlerin tanımlanması
 
-- göndeici yeni bir karakterin başlayacağını 0 göndererek belirtir.
+- gönderici yeni bir karakterin başlayacağını 0 göndererek belirtir.
   - alıcı yeni bir karakterin başlayacağını bu şekilde tespit edebilir
-  - fazladan 0 bilgisi startbiti olarak adlandırılır
-- gönderici hattı boşta bırakmalıdır ki alıcı yeni karakterin başlangıç yerini tesit edebilsin
-  - gönderici her bir karakterden sonra bir adet 1 gönderir
+  - fazladan 0 bilgisi start biti olarak adlandırılır
+- gönderici hattı boşta bırakmalıdır ki alıcı yeni karakterin başlangıç yerini tespit edebilsin
+  - gönderici her bir karakterden sonra bir adet 1 biti gönderir
   - bu ekstra 1 bitine stop biti denir
 - böylece 7 bitle temsil edilen bir karakter için hatta gönderilmesi gereken bir sayısı 9 dur
 
@@ -332,60 +333,81 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 ## Zamanlama
 
 - gönderici ve alıcı her bitin zamanlanması noktasında uzlaşmalıdır
-- bu uzlaşma transmission rate adını verdiğimiz iiletim hızını seçerek gerçekleştirir
+- bu uzlaşma **transmission rate** adını verdiğimiz iletim hızını seçerek gerçekleştirir
   - bu iletişim hızı bit per second olarak ölçülür
-  - start bitinin alıcı tarafından tespiti akabinde arkasından gelecek diğer bitlerin geleceğni gösterir
+  - start bitinin alıcı tarafından tespiti akabinde arkasından gelecek diğer bitlerin geleceğini gösterir
 - donanım genellikle bit hızlarını eşleştirecek şekilde configure edilebilir
-  - swifty ayarları
+  - switch ayarları
   - yazılım
 - oto deteciton
 
 ## iletim hızlarının ölçülmesi
 
-- baud rate terimi saniye başına değişen sinyal sayısını ifade eder
-- bits per second saniye başına gönderilen bit sayısını ifade eder
+- **baud rate terimi saniye başına değişen sinyal sayısını ifade eder**
+- **bits per second** saniye başına gönderilen bit sayısını ifade eder
 - RS-232 de her bir sinyal değişimi 1 bite karşılık gelir bu sebeple baud rate ile bits per second birbirine eşittir
-- eğer her bir sinyal değişimi birden fazla bite karşılık gelirse bu durumda bits per second baud rate den büyük olduğu anlamına gelir
+- eğer her bir sinyal değişimi birden fazla bite karşılık gelirse bu durumda bits per second, baud rate den büyük olduğu anlamına gelir
 
 ## Çerçeveleme
 
 - start ve stop bitleri her bir karakterin çerçevesini gösterir
-- eğer gmnderici ve alıcı farklı hızlar kullanıyorsa stop biti alıcı tarafında beklenilen zamanda almaz
-- bu problem çerçeveleme hatası veya framming error olarak adlandırılır
-- bu durumda RS-232 cihazları BREAK olarak adlandırılan çerçeveleme hatası mesajı gönderebilir
+- eğer gönderici ve alıcı farklı hızlar kullanıyorsa stop biti alıcı tarafında beklenilen zamanda almaz
+- bu problem çerçeveleme hatası veya **framming error** olarak adlandırılır
+- bu durumda RS-232 cihazları **BREAK** olarak adlandırılan çerçeveleme hatası mesajı gönderebilir
 
 ## Çift-yönlü iletişim
 
 - her iki terminal arasında eş zamanlı olarak veri gönderilebilmesi işlemine full-dublex iletişim denir
 - bu yapı her bir yön için ayrı bir kablo gerektirir
 
-## RS-232 bağlantı stndartları
+## RS-232 bağlantı standartları
 
 - RS-232 ye ait 25 tane pinin belirttiği ifadeler aşağıdadır
-  - pin 2 alıcı olarak kullanılır
-  - pin 3 gönderici
-  - pin 4 gönderilmeye hazır veri için
-  - pin 5 gönderilen verinin temizlenmesi için
-  - pin 7 topraklama hattı
+  - pin 2 -> alıcı olarak kullanılır
+  - pin 3 -> gönderici
+  - pin 4 -> gönderilmeye hazır veri için
+  - pin 5 -> gönderilen verinin temizlenmesi için
+  - pin 7 -> topraklama hattı
 
 ## 2-3 değişim
 
-- alıcı ve gönderici tarafında 2 ve 3 pinlerini birbirine bağlamak için çapraz bağlama kullanılmalıdır
+- Alıcı ve gönderici tarafında 2 ve 3 pinlerini birbirine bağlamak için çapraz bağlama kullanılmalıdır
 - RS-232 modem tarafında pin 2 üzerinden gönderim yapıp pin 3 üzerinden alım işlemini gerçekleştirirken bilgisayar tarafında pin 3 üzerinden gönderim yaparken pin 2 üzerinden alım işlemini gerçekleştirir.
-- bu durumda aynı bacaklarda ( pin 2 -> pin2 , pin 3 -> pin -> 3 ) zıt kutuplar eşleştiğinde çapraz bağlantıya ( swap ) gerek yoktur.
+- bu durumda aynı bacaklarda ( pin 2 -> pin2 , pin 3 -> pin 3 ) zıt kutuplar eşleştiğinde çapraz bağlantıya ( swap ) gerek yoktur.
 
-## gerçek donanımın limitleri
+## RS-232 cable breakout-box (RS-232 kablo ayırma kutusu)
 
-- kablodaki dalga formu aşağıdaki şekilde ki gibi görülür
-- daha uzun kablolarda harici gürültüler sinyal görünümünün daha da bozulmasına sebep olur
-- RS-232 standardı göndericinin üretmesi gereken dalga formunun ne kadar kesinlikte olacağını, alıcı tarafta dalga formunda nen kadar tolerans olması gerektiğini de belirler
+- RS-232 bağlantılarını test etmek gerekebilir
+- Koparma kutusu sinyallere erişim sağlar
+
+## Gerçek donanımın limitleri
+
+- Kablodaki dalga formu aşağıdaki şekilde ki gibi görülür
+- Daha uzun kablolarda harici gürültüler sinyal görünümünün daha da bozulmasına sebep olur
+- RS-232 standardı göndericinin üretmesi gereken dalga formunun ne kadar kesinlikte olacağını, alıcı tarafta dalga formunda ne kadar tolerans olması gerektiğini de belirler
 
 ## Donanım bant genişliği
 
-- genellikle k farklı durum içeren sistem için 2Blog2K
-- pratikte gürültü iletilecek maximum veri hızı
+- Gerilimi değiştirme süresindeki sınırlamalar, saniyedeki değişiklik sayısına üst sınır getirir
+- Teorik üst sınıra bant genişliği denir
+- Saniyede döngü veya Hertz olarak ölçülür
 
-## Uzak mesafe haberleşme
+##  Bant genişliği ve veri iletimi
+-   Nyquist örnekleme teoremi, bant genişliği ile maksimum veri iletim hızı arasındaki ilişkiyi ifade eder
+-   RS-232 için, iki voltaj kullanarak, B bant genişliğine sahip ortama göre maksimum hız 2B'dir
+-   Genel olarak, K farklı durumları kullanan sistemlerde maksimum 2Blog2K'dır.
+-   Pratikte, gürültü, maksimum veri iletim hızını Nyquist örnekleme teoreminin izin verdiği maksimum değerden daha düşük bir değerle sınırlar; Claude Shannon
+
+## ÖZET
+
+- Asenkron iletişim - veriler her zaman başlayabilir; tanımlanmamış ayrı bitler
+- RS-232 - Asenkron karakter aktarımı için EIA standardı
+- Saniyedeki karakter sayısı ve baud hızı
+- Bant genişliği maksimum veri iletim hızını sınırlar
+
+### (Chapter 5)
+
+# Uzak mesafe haberleşme
 
 - RS-232 tarafından kullanılarak kodlama her durumda çalışmaz
   - uzak mesafe haberleşme
@@ -395,31 +417,31 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 ## uzak mesafelere sinyal gönderimi
 
 - elektrik akımı kablo üzerinde ilerlerken güç kaybeder
-- kayıp siyal verinin doğru br şekilde dönüştürülmesini engellleyebilir
-- sinyal kaybı durumu RS-232 nin uzak mesafe haberleşmede kullanılmasını olanaksız kılar
+- kayıp sinyal verinin doğru bir şekilde dönüştürülmesini engelleyebilir
+- sinyal kaybı durumu **RS-232 nin uzak mesafe haberleşmede kullanılmasını olanaksız kılar** 
 
 ## Sürekli salınımlı sinyal
 
 - elektik akımından daha uzak noktalara ulaşabilir
 - uzak mesafe haberleşme carrier ( taşıyıcı ) adını verdiğimiz bir sinyal üzerinden gerçekleştirilir
 - taşıyıcının dalga formu aşağıdaki şekildeki gibidir
-- taşıyıcı RS-232 sinyalinden sinyaline göre çook daha uzak mesafelerden tespit edilebilir.
+- taşıyıcı RS-232 sinyalinden sinyaline göre çok daha uzak mesafelerden tespit edilebilir.
 
 ## Bir taşıyıcı ile birlikte veri kodlanması
 
-- iletimde verinin kodlanması için kullanılan modifikasyon tekniğine modilasyon denir
+- iletimde verinin kodlanması için kullanılan modifikasyon tekniğine **modülasyon** denir
 - benzer fikir radyo ve televizyon sistemlerinde kullanılır
-- Taşıyıcı modilasyonu bütün ortam tipleriye kullanılır. Ortamlara örnek olarak bakır fiber radyo imfrared ve lazer verilebilir.
+- **Taşıyıcı modülasyonu bütün ortam tipleriyle kullanılır.** Ortamlara örnek olarak bakır fiber radyo imfrared ve lazer verilebilir.
 
 ## Modülasyon teknikleri
 
-- Genlik modilasyonu güç veya taşıyıcının genliği (genlik ne kadar fazla ise sinyal o kadar güçlüdür) veriyi kodlamak için kullanılır
+- Genlik modülasyonu güç veya taşıyıcının genliği (genlik ne kadar fazla ise sinyal o kadar güçlüdür) veriyi kodlamak için kullanılır
 - frekans modulation, taşıyıcının frekansı veriyi kodlamak için kullanılır
-  /_
-  am ile fm arasındaki farklar ve avantajlar
-  am daha güçlü dalgalar her alandan çekim gücü
-  fm daha güçsüz ama daha kaliteli ses
-  _/
+  ************
+  - am ile fm arasındaki farklar ve avantajlar
+      - am daha güçlü dalgalar her alandan çekim gücü
+      - fm daha güçsüz ama daha kaliteli ses
+  *************
 - Faz kaymalı modülasyon, zaman içerisindeki değişiklikler veya faz kaymaları ile verilerin kodlanması
   // frekans yükseldikçe kalite yükselir
 - her bir faz kayması birden fazla biti taşımak için kullanabilir örnek olarak olası faz kaymasını 2 bit ile kodlayabiiliriz:
@@ -433,21 +455,35 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 ## veri iletimi için donanım
 
 - modülatör veri bitlerini modüle edilmiş taşıyıcı şeklinde kodlar ( veri bitlerini karşılık gelecek şekilde taşıyıcıya dönüştürür )
-- demodulatör taşıyıcıdan bitleri dönüştürür
+- **demodulatör** taşıyıcıdan bitleri dönüştürür
 - veri iletimi kaynakta modulatör hedefte demodülatörü gerektirir
 
 ## çift yönlü iletişim
 
 - Çoğu sistem eş zamanlı çift yönlü ( full-duplex ) bu sebeple her iki uç noktada da hem modülatör hem de demodülatörü gerektirir.
 - uzak mesafe haberleşme 4 kablolu çevirim olarak adlandırılır.
-- modulatör ev demodülatör modem adı verilen bir cihaz ierisinde birleştirilmiştir
+- modulatör ev demodülatör modem adı verilen bir cihaz içerisinde birleştirilmiştir
+
+## Kiralanan seri veri devreleri
+
+- Kuruluşlar genellikle ağdaki 4 telli devreleri içerir
+- Bir site içinde - bir kampüste - organizasyon kendi 4 telli devrelerini kurabilir
+- Telefon şirketi kampüs dışı kablolar tedarik ediyor
+  - Telefon kablolarının genişletme için ekstra telleri (devreleri) vardır
+  - Telefon şirketi kiralama için telgraf kullanma hakkı
+  - Kuruluş veri aktarımı için modem kullanıyor
+- Seri veri devresi veya seri hat olarak adlandırılır
+- Telefon devrelerine paralel (ancak bağlı değil) olarak çalışır
 
 ### (09 / 03 / 2020)
 
 ## optik radyo ve dailup modemler
 
-- özelleşmiş veri devrelerine (kablo modem) ek olarak diğer ortamlarda da kullanılan modemler de vardır.
-- veri kodlaması için modülasyon tekniğini kullanan dönüştürücülerin kodlanması ve çözülmesinin özel bir formudur. - Cam( fiber ) - veri modüle edilmiş ışık şeklinde kodlanır - radyo - veri modüle edilmişradyo sinyali şeklinde kodlanır - Dailup - veri modüle edilmiş ses şeklinde kodlanır
+- Özelleşmiş veri devrelerine (kablo modem) ek olarak diğer ortamlarda da kullanılan modemler de vardır.
+- Veri kodlaması için modülasyon tekniğini kullanan dönüştürücülerin kodlanması ve çözülmesinin özel bir formudur. 
+  - Cam( fiber ) - veri modüle edilmiş ışık şeklinde kodlanır 
+  - Radyo - veri modüle edilmiş radyo sinyali şeklinde kodlanır 
+  - Dailup - veri modüle edilmiş ses şeklinde kodlanır
 - Dailup ( 56k modemler ) modemler sıradan telefon hattına bağlanırlar.
 
 evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
@@ -455,34 +491,47 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 
 ## Dailup modemler
 
-- veri gönderme için bir devredir
-- Bu devre telefon işleyişini temsil eder - ahizeyi kaldırma - çevirme - hatta bekleme - çevir sesinin tespiti
-- tekbir ses kanalı üzerinde çift yönlü iletişim vardır - her bir yön için farklı taşıyıcı frekanslarını kullanarak
+- Veri gönderme için bir devredir
+- Bu devre telefon işleyişini temsil eder 
+  - ahizeyi kaldırma 
+  - çevirme 
+  - hatta bekleme 
+  - çevir sesinin tespiti
+- tekbir ses kanalı üzerinde çift yönlü iletişim vardır 
+  - her bir yön için farklı taşıyıcı frekanslarını kullanarak
 - Gürültüyü filtreler
 
 ## Dailup modemlerin işleyişi
 
 - Alıcı modem cevap modunda aramayı bekler
-- diğer modemler (gönderici - arayan): - ahizeyi kaldırma işlemini taklit eder - dial tone gelmesini bekliyor - çevirilen numaraya verinin gönderimi
-- cevap modundaki modem - Aramayı tespit eder - Ahizeyi kaldırmayı simüle eder - taşıyıcı gönderir
+- diğer modemler (gönderici - arayan): 
+  - ahizeyi kaldırma işlemini taklit eder 
+  - dial tone gelmesini bekliyor 
+  - çevirilen numaraya verinin gönderimi
+- cevap modundaki modem 
+  - Aramayı tespit eder 
+  - Ahizeyi kaldırmayı simüle eder 
+  - taşıyıcı gönderir
 - Modem aranıyor:
   - Operatör gönderir
 - veri transferi
 
 ## taşıyıcı frekansları ve çoğullama
 
-- veri birden çok sinyalle aynı ortamda gürültü olmadan taşınabilir. - bu bize eş zamanlı olarak çoklu veri akışı olanağı sağlar - Dailup modemler tek bir ses kanal üzerinde çift yönlü iletişim gerçekleştirebilirler
+- veri birden çok sinyalle aynı ortamda gürültü olmadan taşınabilir. 
+  - bu bize eş zamanlı olarak çoklu veri akışı olanağı sağlar 
+  - Dailup modemler tek bir ses kanal üzerinde çift yönlü iletişim gerçekleştirebilirler
 - örnek - aynı hava ortamı içerisinde çoklu tv yayınları
 - her bir ayrı sinyal bir channel( kanal ) olarak adlandırılır.
 
 ## Çoğullama
 
 - bir ortam üzerinde birden çok sinyalin taşınması işlemi multiplexing olarak adlandırılır
-
-birden çok kaynak - pultiplexor denilen bir araca bağlanır bu aygıt bir kanal yardımı ile demultiplexor a bağlanır ve bu araca da kaynaklar bağlanır
-
+- birden çok kaynak multiplexor denilen bir araca bağlanır bu aygıt bir kanal yardımı ile demultiplexor a ayrılır ve bu araca da kaynaklar bağlanır
 - frekans bölütlü çoğullama farklı taşıyıcı frekansları kullanarak çoğullama işlemini gerçekleştirir
-- alıcı belirli bir frekansa ait sesi (tune) alabilir ve o kanal için veriyi elde edebilir. - Frekanslar gürültüden kaçınmak amacı ile ayrılmak zorundadır - farklı frekanslarla birden çok sinyalin taşınabildiği ortamlarda oldukça yararlıdır. (sonuç olarak yüksek bant genişliğine ihtiyacımız vardır)
+- alıcı belirli bir frekansa ait sesi (tune) alabilir ve o kanal için veriyi elde edebilir. 
+  - Frekanslar gürültüden kaçınmak amacı ile ayrılmak zorundadır 
+  - farklı frekanslarla birden çok sinyalin taşınabildiği ortamlarda oldukça yararlıdır. (sonuç olarak yüksek bant genişliğine ihtiyacımız vardır)
 
 ## Spektrum Çoğullama
 
