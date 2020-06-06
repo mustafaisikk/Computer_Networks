@@ -191,7 +191,7 @@ TCP / IP 1978 yılında bulundu
 ## bakır tel
 
 - Bükümlü çift iki tek kullanır
-- coaxial kablo performansı artırabilmek için "kalkan" içerir 
+- coaxial kablo performansı artırabilmek için "kalkan" içerir
 - iç tel, izolasyon malzemesi, Metal kalkan, Dış İzolasyon
 
 ## cam fiber
@@ -392,11 +392,12 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 - Teorik üst sınıra bant genişliği denir
 - Saniyede döngü veya Hertz olarak ölçülür
 
-##  Bant genişliği ve veri iletimi
--   Nyquist örnekleme teoremi, bant genişliği ile maksimum veri iletim hızı arasındaki ilişkiyi ifade eder
--   RS-232 için, iki voltaj kullanarak, B bant genişliğine sahip ortama göre maksimum hız 2B'dir
--   Genel olarak, K farklı durumları kullanan sistemlerde maksimum 2Blog2K'dır.
--   Pratikte, gürültü, maksimum veri iletim hızını Nyquist örnekleme teoreminin izin verdiği maksimum değerden daha düşük bir değerle sınırlar; Claude Shannon
+## Bant genişliği ve veri iletimi
+
+- Nyquist örnekleme teoremi, bant genişliği ile maksimum veri iletim hızı arasındaki ilişkiyi ifade eder
+- RS-232 için, iki voltaj kullanarak, B bant genişliğine sahip ortama göre maksimum hız 2B'dir
+- Genel olarak, K farklı durumları kullanan sistemlerde maksimum 2Blog2K'dır.
+- Pratikte, gürültü, maksimum veri iletim hızını Nyquist örnekleme teoreminin izin verdiği maksimum değerden daha düşük bir değerle sınırlar; Claude Shannon
 
 ## ÖZET
 
@@ -418,7 +419,7 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 
 - elektrik akımı kablo üzerinde ilerlerken güç kaybeder
 - kayıp sinyal verinin doğru bir şekilde dönüştürülmesini engelleyebilir
-- sinyal kaybı durumu **RS-232 nin uzak mesafe haberleşmede kullanılmasını olanaksız kılar** 
+- sinyal kaybı durumu **RS-232 nin uzak mesafe haberleşmede kullanılmasını olanaksız kılar**
 
 ## Sürekli salınımlı sinyal
 
@@ -437,11 +438,11 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 
 - Genlik modülasyonu güç veya taşıyıcının genliği (genlik ne kadar fazla ise sinyal o kadar güçlüdür) veriyi kodlamak için kullanılır
 - frekans modulation, taşıyıcının frekansı veriyi kodlamak için kullanılır
-  ************
+  ***
   - am ile fm arasındaki farklar ve avantajlar
-      - am daha güçlü dalgalar her alandan çekim gücü
-      - fm daha güçsüz ama daha kaliteli ses
-  *************
+    - am daha güçlü dalgalar her alandan çekim gücü
+    - fm daha güçsüz ama daha kaliteli ses
+  ***
 - Faz kaymalı modülasyon, zaman içerisindeki değişiklikler veya faz kaymaları ile verilerin kodlanması
   // frekans yükseldikçe kalite yükselir
 - her bir faz kayması birden fazla biti taşımak için kullanabilir örnek olarak olası faz kaymasını 2 bit ile kodlayabiiliriz:
@@ -480,9 +481,9 @@ gönderici ilk biti (1 {1 0 0 1}) negatif kodlar ve alıcıya doğru biti iletir
 ## optik radyo ve dailup modemler
 
 - Özelleşmiş veri devrelerine (kablo modem) ek olarak diğer ortamlarda da kullanılan modemler de vardır.
-- Veri kodlaması için modülasyon tekniğini kullanan dönüştürücülerin kodlanması ve çözülmesinin özel bir formudur. 
-  - Cam( fiber ) - veri modüle edilmiş ışık şeklinde kodlanır 
-  - Radyo - veri modüle edilmiş radyo sinyali şeklinde kodlanır 
+- Veri kodlaması için modülasyon tekniğini kullanan dönüştürücülerin kodlanması ve çözülmesinin özel bir formudur.
+  - Cam( fiber ) - veri modüle edilmiş ışık şeklinde kodlanır
+  - Radyo - veri modüle edilmiş radyo sinyali şeklinde kodlanır
   - Dailup - veri modüle edilmiş ses şeklinde kodlanır
 - Dailup ( 56k modemler ) modemler sıradan telefon hattına bağlanırlar.
 
@@ -492,25 +493,25 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 ## Dailup modemler
 
 - Veri gönderme için bir devredir
-- Bu devre telefon işleyişini temsil eder 
-  - ahizeyi kaldırma 
-  - çevirme 
-  - hatta bekleme 
+- Bu devre telefon işleyişini temsil eder
+  - ahizeyi kaldırma
+  - çevirme
+  - hatta bekleme
   - çevir sesinin tespiti
-- tekbir ses kanalı üzerinde çift yönlü iletişim vardır 
+- tekbir ses kanalı üzerinde çift yönlü iletişim vardır
   - her bir yön için farklı taşıyıcı frekanslarını kullanarak
 - Gürültüyü filtreler
 
 ## Dailup modemlerin işleyişi
 
 - Alıcı modem cevap modunda aramayı bekler
-- diğer modemler (gönderici - arayan): 
-  - ahizeyi kaldırma işlemini taklit eder 
-  - dial tone gelmesini bekliyor 
+- diğer modemler (gönderici - arayan):
+  - ahizeyi kaldırma işlemini taklit eder
+  - dial tone gelmesini bekliyor
   - çevirilen numaraya verinin gönderimi
-- cevap modundaki modem 
-  - Aramayı tespit eder 
-  - Ahizeyi kaldırmayı simüle eder 
+- cevap modundaki modem
+  - Aramayı tespit eder
+  - Ahizeyi kaldırmayı simüle eder
   - taşıyıcı gönderir
 - Modem aranıyor:
   - Operatör gönderir
@@ -518,8 +519,8 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 
 ## taşıyıcı frekansları ve çoğullama
 
-- veri birden çok sinyalle aynı ortamda gürültü olmadan taşınabilir. 
-  - bu bize eş zamanlı olarak çoklu veri akışı olanağı sağlar 
+- veri birden çok sinyalle aynı ortamda gürültü olmadan taşınabilir.
+  - bu bize eş zamanlı olarak çoklu veri akışı olanağı sağlar
   - Dailup modemler tek bir ses kanal üzerinde çift yönlü iletişim gerçekleştirebilirler
 - örnek - aynı hava ortamı içerisinde çoklu tv yayınları
 - her bir ayrı sinyal bir channel( kanal ) olarak adlandırılır.
@@ -529,8 +530,8 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 - bir ortam üzerinde birden çok sinyalin taşınması işlemi multiplexing olarak adlandırılır
 - birden çok kaynak multiplexor denilen bir araca bağlanır bu aygıt bir kanal yardımı ile demultiplexor a ayrılır ve bu araca da kaynaklar bağlanır
 - frekans bölütlü çoğullama farklı taşıyıcı frekansları kullanarak çoğullama işlemini gerçekleştirir
-- alıcı belirli bir frekansa ait sesi (tune) alabilir ve o kanal için veriyi elde edebilir. 
-  - Frekanslar gürültüden kaçınmak amacı ile ayrılmak zorundadır 
+- alıcı belirli bir frekansa ait sesi (tune) alabilir ve o kanal için veriyi elde edebilir.
+  - Frekanslar gürültüden kaçınmak amacı ile ayrılmak zorundadır
   - farklı frekanslarla birden çok sinyalin taşınabildiği ortamlarda oldukça yararlıdır. (sonuç olarak yüksek bant genişliğine ihtiyacımız vardır)
 
 ## Spektrum Çoğullama
@@ -561,21 +562,22 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 
 ## Paketler
 
-- Çoğu network iletişim için veriyi paket adı verilen küçük bloklara böler
+- Çoğu network iletişim için veriyi **paket** adı verilen **küçük bloklara böler**
 - her paket birbirinden bağımsız şekilde gönderilir
-- böyle networkler paket networkler veya paket anahtarlı networkler olarak adlandırılır
+- böyle networkler paket networkler veya **paket anahtarlı networkler** olarak adlandırılır
 
 ## Motivasyon
 
-- Koordinasyon- Gönderici ve alıcı verinin doğru alınıp alınmadığına karar vermelidir.
+- Koordinasyon: Gönderici ve alıcı verinin doğru alınıp alınmadığına karar vermelidir.
 - Kaynak paylaşımı bilgisayarların network altyapısını paylaşımlı olarak kullanmasına olanak sağlar.
-- Networkler adil kullanımı uygularlar. Herbir bilgisayar birim zamanda yalnızca bir paket gönderebilir.
+- Networkler adil kullanımı uygularlar.
+- Herbir bilgisayar birim zamanda yalnızca bir paket gönderebilir.
 
 ## Dedicated Network Access (adil kullanımda kastı ne )
 
 - 5 MB lık bir dosyayı 56 kbbit/persecond kapasiteli bir modemden bir network boyunca (uzerinden) yaklaşık 12 dk da gönderir.
-- (5x10^6 bytes) _ (8 bits) / (60 secs/min) _ (56x10^3 bit/second) = 11.9 dk 11.54 sn
-- Bu hesap sonucunda diğer bütün bilgisayarlar başka bir transfere başlamadan önce 12dk beklemek zorunda kalacaklar.
+- **(5x10^6 bytes) _ (8 bits) / (60 secs/min) _ (56x10^3 bit/second) = 11.9 dk 11.54 sn**
+- Bu hesap sonucunda diğer bütün bilgisayarlar başka bir transfere başlamadan önce **12dk beklemek zorunda kalacaklar**.
 
 ## Paket Anahtarlamalı Erişim
 
@@ -591,23 +593,23 @@ evdeki bilgisayar -- rs232 -- modem -- -- modem -- rs232 -- evdeki bilgisayar
 ## Zaman bölütlemeli çoğullama
 
 - Verinin küçük paketlere bölünmesi zaman paylaşımını çoğullamaya olanak sağlar
-- her paket kaynaktan ayrıdır ve ortak bir iletişim kanalı multiplexor üzerinden ortak bir iletişim kanalına aktarılır.
-- hedefte paket demultiplexor üzerinden hedefe aktarılır.
+- her paket kaynaktan ayrıdır ve ortak bir iletişim kanalı **multiplexor** üzerinden ortak bir iletişim kanalına aktarılır.
+- hedefte paket **demultiplexor** üzerinden hedefe aktarılır.
 
 ## Zaman bölütlemeli çoğullama örnek
 
-birim zamanda bir bilgisayar çifti haberleşme linkini kullanarak veri alışverişi yapar
+- Birim zamanda bir bilgisayar çifti haberleşme linkini kullanarak veri alışverişi yapar
 
 ## paketler ve frame'ler
 
 - paket terimi verinin küçük bir bloğununa karşılık gelir
 - her bir donanım teknolojisi farklı paket formatı kullanır
-- frame veya hardwareframe belirli bir donanım teknolojisi üzerindeki belirli bir yapıya sahip paketi gösterir
+- frame veya hardware frame belirli bir donanım teknolojisi üzerindeki belirli bir yapıya sahip paketi gösterir
 
 ## frame Formatları
 
 - veriye ait framenin başlangıcını ve bitişini belirtmek için standart bir format tanımlamamıza ihtiyaç vardır.
-- header ve trailer ifadeleri frame için kullanılırlar
+- **header** ve **trailer** ifadeleri frame için kullanılırlar
 
 ## frame standartlarının tanımlanması
 
@@ -616,12 +618,12 @@ birim zamanda bir bilgisayar çifti haberleşme linkini kullanarak veri alışve
   eğer veriniz yazılabilir ascii ifadeleri ile sınırlı ise bu durumda
   -> 'startd of header' ( soh )
   -> 'end of text' ( eot )
-- gönderici bilgisayar öncelikle soh ifadesini gönderir ardından datayı gönderir ve son olarak da eot ifadesini gönderir.
-- alıcı bilgisayar soh ifadesini yorumlar ve gözardı eder verileri buffer da depolar ve eot ifadesini de yorumlayıp göz ardı eder
+- Gönderici bilgisayar öncelikle soh ifadesini gönderir ardından datayı gönderir ve son olarak da eot ifadesini gönderir.
+- Alıcı bilgisayar soh ifadesini yorumlar ve gözardı eder verileri buffer da depolar ve eot ifadesini de yorumlayıp göz ardı eder
 
 ## frame format
 
-soh - block data in frame - eot
+- soh: block data in frame - eot
 
 ## paket çerçeveleme
 
@@ -644,115 +646,103 @@ soh - block data in frame - eot
 
 ## Veri istiflemesi
 
-- ayrılmış byte ların kodlanması için eklenen ekstra veri nıktasında kullanılan iki teknik bit stuffing ile byte stuffing dir
-- byte stuffing her bir ayrılmış byte ın iki tane ayrılmamış byte a dönüştürür.
+- Ayrılmış byte'ların kodlanması için eklenen ekstra veri nıktasında kullanılan iki teknik **bit stuffing** ile **byte stuffing** dir
+- Byte stuffing her bir ayrılmış byte ın iki tane ayrılmamış byte a dönüştürür.
   örnek - esc yi örnek olarak kullanabiliriz, arkasından da soh için x i eot için y yi kullanacağız ve unreserved esc yi belirtmek için escnin arkasından z yi kullanacak
 
-## byte stuffing
+## Byte stuffing
 
-- gönderici her bir ayrılmış byte ın uygun kodlanmış byte çiftlerine dönüştürür.
-- alıcı byte çiftlerini yorumlar ve kodlanmış byte ı buffer a depolar
-- veri halen soh ve eot tarafından çerçevelenmiş durumdadır
+- Gönderici her bir ayrılmış byte ın uygun kodlanmış byte çiftlerine dönüştürür.
+- Alıcı byte çiftlerini yorumlar ve kodlanmış byte'ı buffer a depolar
+- Veri halen soh ve eot tarafından çerçevelenmiş durumdadır
 
-## byte stuffing örneği
+## Byte stuffing örneği
 
-- alıcı esc ve y yi veri içerisindeki eot karakterine karşılık gelecek şekilde yorumlar ve sonrasında alıcı alınan veriyi kaydeder
+- Alıcı esc ve y yi veri içerisindeki eot karakterine karşılık gelecek şekilde yorumlar ve sonrasında alıcı alınan veriyi kaydeder
 
-## iletişim hataları
+## İletişim hataları
 
-- harici elektromanyetik sinyaller veri teslimatında bozuntuya sebep olabilir
-  -> veri düzgün bir şekilde alınamayabilir
-  -> veri kaybolabilir
-  -> istenmeyen veriler üretilebilir
-- bu problemlerden herhangibiri iletişim hatası olarak adlandırılır
+- Harici elektromanyetik sinyaller veri teslimatında bozuntuya sebep olabilir
+  - Veri düzgün bir şekilde alınamayabilir
+  - Veri kaybolabilir
+  - İstenmeyen veriler üretilebilir
+- Bu problemlerden herhangibiri iletişim hatası olarak adlandırılır
 
 ## Hata tespiti ve düzeltme
 
-- hata tespiti - hata tespiti için ek bir bilgi gönderilir ve böylece doğru olmayann veri tespit edilip reddedilir(gözardı).
-- hata düzeltme - hata düzeltme için ek bir bilgi gönderilir ve böylece doğru olmayan veri düzeltilebilir ve kabul edilebilir
+- Hata tespiti: hata tespiti için ek bir bilgi gönderilir ve böylece doğru olmayan veri tespit edilip reddedilir(gözardı).
+- Hata düzeltme: hata düzeltme için ek bir bilgi gönderilir ve böylece doğru olmayan veri düzeltilebilir ve kabul edilebilir
 
 ### (ue1 - 09 / 04 / 2020 )
 
-## iletim hataları
-
-- harici bir elektromanytetik sinyal verinin teslimatının yanlış olmasına sebep olabilir
-  - veri kaybolabilir
-  - veri düzgünce alınamayabilir
-  - istenmeyen veriler alınabilir
-- bu problemlerden her biri iletişim problemleri olarak adlandırılır.
-
-## hata tespiti ve düzeltme
-
-- yanlış olan verinin tespiti ve reddedilmesini sağlayabilmek için ek bir bilgi gönderilir
-- hata düzeltme kısmında ise yanlış olan verinin düzeltilip kabul edilebilmesi amacı ile ek bir bilgi gönderilir
-
 ## parity (italic) checking
 
-- verimizin içerisinde bulunan lojik 1 lerin sayısını gösterir
-  - even parity - veri içerisindeki 1 lerin sayısının çift olmasına dayalı sistem
-  - odd parity - veri içerisindeki 1lerin sayısının tek olmasına dayalı sistem
-- parity biti ekstra bir bittir ve veri ile birlikte gönderilen bittir ve sonuç olarakk bu even veya odd paritiden hangisinin kullanılacağının önceden belirlenmesi gerekiyor
-  - örnek even parity de uzlaşılmız ise ve veri örneğin 10010001 ise parity bilgisi olarak 1 eklenir
+- Verimizin içerisinde bulunan lojik 1 lerin sayısını gösterir
+  - Even parity - veri içerisindeki 1 lerin sayısının **çift** olmasına dayalı sistem
+  - odd parity - veri içerisindeki 1lerin sayısının **tek** olmasına dayalı sistem
+- Parity biti **ekstra bir bittir** ve veri ile birlikte gönderilen bittir ve sonuç olarakk bu even veya odd paritiden hangisinin kullanılacağının **önceden belirlenmesi** gerekiyor
+  - örnek even parity de uzalaşılmış ise ve veri örneğin 10010001 ise parity bilgisi olarak 1 eklenir
   - odd parity seçilmiş ise 10010111 ise parity bit 0 dır
 
 ## parity ve hata tespiti
 
-- gürültü veya diğer parazitler bizi hataya götürebilir bu veri içerisindeki btlerden biri 0 dan 1 e veya 1 den 0a dönüşebilir
-- sonuçta parity bilgisi yanlış olacaktır.
-  - orjinal veri (10010001 + 1) even parity e göre
-  - incorrect data (10110001 + 1) (odd parity)
-- gönderici ve alıcı başlangıçta hangi parity nin kullanılacağı konusunda anlaşmalıdır
-- eğer alınan datada yanlış parity biti varsa alıcı verideki hatayı tespit eder
+- Gürültü veya diğer parazitler bizi hataya götürebilir bu veri içerisindeki bitlerden biri 0 dan 1 e veya 1 den 0'a dönüşebilir
+- Sonuçta parity bilgisi yanlış olacaktır.
+  - Orjinal veri (10010001 + 1) even parity e göre
+  - Incorrect data (10110001 + 1) (odd parity)
+- Gönderici ve alıcı başlangıçta hangi parity nin kullanılacağı konusunda anlaşmalıdır
+- Eğer alınan datada yanlış parity biti varsa alıcı verideki hatayı tespit eder
 
 ## Limitations to parity checking
 
-- parity yanlızca tek sayıda bitlerin değişimine bağlı ortaya çıkacak hataları tespit edebilir
+- Parity **yanlızca tek** sayıda bitlerin değişimine bağlı ortaya çıkacak hataları tespit edebilir.
   - orjinal data (10010001 + 1 evenparity)
   - incorrect data (10110011 + 1 evenparity!)
 - parity bilgisi (teniği) bir bite dayalı hataları tespit etme noktasında kulllanılır
 
-## alternatif hata tespit şemaları
+## Alternatif hata tespit şemaları
 
-- çoklu bit hatalarını tespit etme noktasında kullanılır
-  - veya bunlardan bazıları fazlalık bilgi vasıtası ile hataları düzeltebilir
-- chechsum ve crc yaygın kullanılan 2 tekniktir
+- Çoklu bit hatalarını tespit etme noktasında kullanılır veya bunlardan bazıları fazlalık bilgi vasıtası ile hataları düzeltebilir
+- **Chechsum** ve **CRC** yaygın kullanılan 2 tekniktir
 
-## checksum
+## Checksum
 
-- mesajın içerisindeki verileri bir int dizisi şeklinde düşünüp bunların toplamını baz alır
-- bu int yapılar 8 16 veya 32 bitlik olabilir
+- Mesajın içerisindeki verileri **bir int dizisi** şeklinde düşünüp bunların toplamını baz alır
+- bu int yapılar **8** **16** veya **32** **bitlik** olabilir
 - bu işlemleri yaparken genellikle 1 e tümleme işlemini kullanılır
 
 ## checksum hesaplamanın uygulanması
 
-- uygulanması basittir yanlızca toplama kullnılır
-- 16 bitlik checksum ın en hızlı uygulamaları 32 bitlik aritmetik işlemleri kullanır ve en sonunda eldeyi ekler
-- bu hesaplama işlemini döngülleri açarak ve benzer optimizasyon teknikleri kullnarak hızlandıra bilirsiniz
+- uygulanması basittir **yanlızca toplama** kullnılır
+- 16 bitlik checksum'ın en hızlı uygulamaları 32 bitlik aritmetik işlemleri kullanır ve en sonunda eldeyi ekler
+- Bu hesaplama işlemini döngüleri açarak ve benzer optimizasyon teknikleri kullanarak hızlandıra bilirsiniz
 
-## checksum limitleri
+## Checksum limitleri
 
-- bütün hataları yakalayamaz (özetle yapılan işlem toplama sonucu çıkan verilerin eşit olup olmadığını kontrol etmek ancak farklı değerler ile aynı sonuca da ulaşılabildiğinden herzaman kullanışlı değildir )
+- **Bütün hataları yakalayamaz** (özetle yapılan işlem toplama sonucu çıkan verilerin eşit olup olmadığını kontrol etmek ancak farklı değerler ile aynı sonuca da ulaşılabildiğinden herzaman kullanışlı değildir )
 
 ## Cyclic redundancy checks (CRC tekniği)
 
-- mesajın içerisindeki bir fonksiyonun kat sayıları olarak düşünün
-- donra bu katsayılardan oluşan veriyi bilinen bir fonksiyona bölün
-- son kalan kısmı da crc olarak gönderin
+- Mesajın içerisindeki bir fonksiyonun kat sayıları olarak düşünün
+- Sonra bu katsayılardan oluşan veriyi bilinen bir fonksiyona bölün
+- Son kalan kısmı da CRC olarak gönderin
+  - İyi hata algılama özellikleri
+  - Donanımda kolay uygulama
 
 ## Hata tespiti ve çerçeveler
 
-- hata tespiti tipik olarak her bir frame için gerçekleştirilir
-- eğer frame de bir hata varsa alıcı tarafın bu frame yi göz ardı etmesi ile sonuçlanır
-- örneğin crc bilgisi frame içerisinde veriye bağlı olarak hesaplandıktan sonra gönderilir
+- Hata tespiti tipik olarak **her bir frame** için gerçekleştirilir
+- Eğer frame de bir hata varsa alıcı tarafın bu frame'yi göz ardı etmesi ile sonuçlanır
+- Örneğin crc bilgisi frame içerisinde veriye bağlı olarak hesaplandıktan sonra gönderilir
 
 # özet
 
-- bilgisayar ağları veriyi paketlere böler
-  - bu kısımda kaynak paylaşımı
-  - adil kullanım vardır
-- donanım çerçeveleri vardı ve bunlar özelleşmiş donanıma göre belirlenir
-- her bir frame nin spesisifik formatıı vardır bu da frame nin nerede başlayıp nerede bittiğini gösterir
-- hata tespiti ve düzeltilmesi iletişim hatalarının tespiti ve düzeltilmesi noktsında kullanılabilir.
+- Bilgisayar ağları veriyi paketlere böler
+  - Bu kısımda kaynak paylaşımı
+  - Adil kullanım vardır
+- Donanım çerçeveleri vardı ve bunlar özelleşmiş donanıma göre belirlenir
+- Her bir frame'nin spesisifik formatıı vardır bu da frame'nin nerede başlayıp nerede bittiğini gösterir
+- Hata tespiti ve düzeltilmesi iletişim hatalarının tespiti ve düzeltilmesi noktasında kullanılabilir.
 
 ### (ue2 - 10 / 04 / 2020)
 
