@@ -1999,3 +1999,129 @@ link state dijikstra algoritmasını kullanır
   - bilgisayar networke olan kalıcı bağlantıyı yönetir ve sürdürür
   - network istek anında bağlantıyı sağlar
   - dahili bileşenler switch dir, ağ ise Switched data network dur
+  
+  ### (ue13 - 28 / 05 / 2020)
+
+## Adresler ve bağlantı tanımlayıcıları
+
+- Adres tam ve eşsiz bir tanımlayıcıdır
+- bağlantısız teslimatta her bir pakette adrese ihtiyacımız vardır
+- bağlantı yönelimli teslimatta bir kısaltma kullnılır bu kısaltma da hedeften ziyade bağlantıyı tanımlar
+- ATM 160 bit adres 28 bit bağlantı tanımlanır
+    - bağlantı tanımlamaları
+    - 12 bit VPI (virtual path identifier)
+    - 16 bit VCI (virtual circuit identifier)
+    - her yerel bilgisayar bağlantı tanımlayıcısı mevcuttur
+    - ATM switchlerin farklı kısımlarında VPI ve VCI farklı olabilir
+
+## Network performans karakteristiği
+
+- gecikme
+- throghput
+- gecikme-throghput ürünü
+
+## Network Delay
+
+- Delay network üzerinde veriyi transfer etmek için geciken süre
+- propagation delay (yayılma gecikmesi) = bu süre ortam üzerinden geçerken harcanan süre
+- Switching delay  - veriyi network cihazları üzerinden (hub, bridge, packet switch) iletirken harcanan süre.
+- Access Delay - ortamın kontrolünü ele almak için harcanan süre
+- Queuing delay (kuyruklama) - paket switchlerde trafik yoğunlaşması olduğunda trafik sebebi ile gerçekleşen bekleme 
+
+## Throughput
+
+- verinin network üzerinden gönderilir iken hızının tespit etmek amaçlı kullanılan terim
+    - 300 bps (bit per second)- eski modemlerde
+    - 1gbs (gigabit [10^9] bits per second) - günümüzde en hızlı
+- Bandwidth - donanımın transfer açısından en üst seviye sınırı
+- Effective throughput - gerçek veri transferi
+
+## Gecikme ile throughput arasındaki ilişki
+
+- throughput arttıkça delay de artar
+- aşırı trafic olarak bilinen tıkanma durumu
+- Etkin gecikme aşağıdaki gibi hesaplanır
+
+    **D = D0 / (1-U)**
+
+## Gecikme-Throughput Ürünü
+
+- Etkin gecikme efective throughput üzerinden hesaplanır
+- Ayrıca bu yapı network üzerinden gönderilen verinin miktarını da hesaplar
+- Uzun gecikmeye sahip hızlı ağlarda gönderici bilgisayar,  alıcı bilgisayar daha veriinin ilk bitini almadan verinin büyük bir kısmını gönderebilir 
+
+# ÖZET
+
+- public ve private networkler
+- bağlantı yönelimli ve bağlantısız servisler
+- hedef adres için connection orianted da bir bağlantı tanımlayıcı kısaltma (VPI , VSI)
+- Network üzerinden;
+    - Delay
+    - Throughput
+    - Delay - Throughput product
+
+
+### (Chapter 14)
+
+# Protokol ve Tabakalama Yapısı
+
+## Giriş
+
+- LAN ve Wan donanımı bütün bilgisayar haberleşme problemlerini çözemez
+- LAN ve WAN sistemleri için yazılım oldukça geniş ve karmaşık bir uygulamadır
+- tabakalama bu network e ait yazılım dizaynını ve uygulanmasını organizasyon etmek için kullanılan bir yapılandırma tekniğidir
+
+## Neden Ağ Yazılımı
+
+- ham donanım üzerinden gönderilen data uygunsuz ve tuğaftır - programlama paradigması ile uygun değildir
+- Disk kontrolüne çağrılar yaparak okuma yazma kafasını konumlandırıp dosyalara erişmek ve aynı zamanda bireysel sektörlere erişmektir
+- Yardım olmadan biz ilgimiz olan her hedefe veri gönderemeyebiliriz
+- network yazılımı uygulamalara yüksek seviyeli arayüz sağlar
+
+## Neden Protokoller
+
+- Protokol kelimesi yunanca protokollen den gelir, ve kuralların olduğu kağıt parçası anlamına gelir
+- bunu diplomatlar resmi işlemlerde rehber olması amacı ile kullanırdı.
+- network protokolü yada bilgisayar haberleşme protokolü ise bir dizi kuralalr setidir ki bu network üzerinden bilgisayarlar arasında gönderilen mesajların anlamını ve formatını belirler
+    - format çoğu zaman syntax olarak adlandırılır ken 
+    - burada semantik olarak adlandırılır
+- protokoller protokol yazılımı tarafınbdan uygulanılırlar
+
+## bir veya birden çok protokol
+- bir network üzerinden bilgisayar haberleşmesi oldukça zor bir problemdir
+- bu karmaşıklık birden çok protokolü gerektirir ki  bu protokollerin her biri problemin bir parçasını yönetir
+- bu işlem basit veya karmaşık olabilir ancak en nihayetinde bütün herşey birlikte çalışmak zorundadır
+
+## Protokol takımları
+
+- birbiri ile alakalı protokol seti protokol takımları olarak adlandırılır, uygunluk amacı ile tasarlanmıştır
+- protokol takımı dizaynırları
+    - iletişim problemini analiz ederler
+    - problemi alt parçalara bölerler
+    - her bir alt problem için bir protokol tasarlarlar
+- iyi tasarlanmış bir protokol takımı
+    - verimli ve etkindir, problemi  fazlalık olmadan çözer ve ağ kapasitesinin kullanımını en iyi n oktaya gertirir
+    - diğer protokollerin değiştirilmesine gerek kalmadan protokollerin bireysel olarak değiştirilmesine imkan sağlar
+
+## tabakalı protokol dizaynı
+
+- tabakalı model network protokellerindeki karmaşıklık problemine bir çözümdür
+- bu model network protokolünü tabakalara bölmeyi önerir ve her bir tabaka network iletişim probleminin bir parçasını çözer
+- bu tabakalar çeşitli kısıtlamalara sahiptir ve bu kısıtlamalar da dizayn problemini kolaylaştırır
+- network protokolü her bir tabaka için bir veya birden çok protokole sahip olacak şekilde tasarlanır
+
+## 7 tabakalı OSI modeli
+
+- bu organizasyon 7 tabakalı bir model tanımlamıştır bu model network network protocol suite nin tasarımına rehber olması için tasarlanmıştır
+- Tabakalar isimlendirilir ve numaralandırılır
+
+## iso modelindeki tabakalar
+
+- bir çok modern protokol osi modeli ile tam olarak eşleşmez ve osi protokol takımı çoğunlukla tarihi bir ilgidir
+- kavramlar halen oldukça yararlı ve terminolojik kalıcıdır
+- Katman 7 : Application
+    - uygulamalar ve spesifik prpotokoller bulunur FTP ve SMTP (electronic mail)
+- Katman 6 : Presentation
+    - verinin gösterimi için kullanılan formatlar vardır
+
+
